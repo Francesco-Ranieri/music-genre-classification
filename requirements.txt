@@ -4,7 +4,7 @@ coverage~=7.0.1
 awscli
 flake8~=6.0.0
 python-dotenv>=0.5.1
-sklearn~=0.0.post1
+scikit-learn
 pandas~=1.5.2
 pathlib~=1.0.1
 dagshub~=0.2.7
