@@ -36,3 +36,6 @@ class PathUtils:
     DATA_PROCESSED_PATH = DATA_PATH.joinpath("processed")
     DATA_RAW_PATH = DATA_PATH.joinpath("raw")
     SRC_PATH = ROOT_PATH.joinpath("src")
+    GTZAN_DATASET_RAW_PATH = DATA_RAW_PATH.joinpath(Path("features_3_sec.csv"))
+    MFCC_DATASET_RAW_PATH = DATA_RAW_PATH.joinpath(Path("genres_original/"))
+    MFCC_DATASET_PROCESSED_PATH = DATA_PROCESSED_PATH.joinpath(Path("mfcc_dataset.json/"))

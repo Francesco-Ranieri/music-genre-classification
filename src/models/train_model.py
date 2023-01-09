@@ -54,6 +54,7 @@ class ModelTrainer:
 
 dotenv.load_dotenv(override=True)
 EXPERIMENT_NAME = "GAUSSIAN_NAIVE_BAYES"
+
 with mlflow.start_run(run_name=EXPERIMENT_NAME) as run:
     classifier = GaussianNB()
     model_trainer = ModelTrainer()
