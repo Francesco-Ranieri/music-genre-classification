@@ -1,9 +1,11 @@
-from sklearn.naive_bayes import GaussianNB
-import mlflow
 import dotenv
+import mlflow
+import dvc.api
+from sklearn.naive_bayes import GaussianNB
 
 from src.data.data_utils import get_dataset
 from src.models.evaluation import evaluate_classifier
+from src.models.model_utils import get_model_from_name
 
 
 class ModelTrainer:
@@ -30,12 +32,16 @@ class ModelTrainer:
         self.x_validation = data["x_validation"]
         self.y_validation = data["y_validation"]
 
-    def train_model(self, model, model_name: str = "model"):
+    def train_model(self):
         """
         :param model:
         :param model_name:
         :return:
         """
+
+        params = dvc.api.params_show()
+        model_name = params['train']['model-name']
+        model = get_model_from_name(model_name)
 
         mlflow.autolog()
         _, trained_model = evaluate_classifier(model,
@@ -58,4 +64,4 @@ EXPERIMENT_NAME = "GAUSSIAN_NAIVE_BAYES"
 with mlflow.start_run(run_name=EXPERIMENT_NAME) as run:
     classifier = GaussianNB()
     model_trainer = ModelTrainer()
-    model_trainer.train_model(classifier, EXPERIMENT_NAME)
+    model_trainer.train_model()

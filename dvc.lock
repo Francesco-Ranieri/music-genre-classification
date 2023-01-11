@@ -1,0 +1,66 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python src/data/make_dataset.py
+    deps:
+    - path: src/data/make_dataset.py
+      md5: e261859a218f2f5f47cba794cd1ba63e
+      size: 5305
+    outs:
+    - path: data/processed/mfcc_dataset.json
+      md5: 2cb121939602a2c4d50b48e6b6152fbd
+      size: 661805132
+    - path: data/processed/x_test.pkl
+      md5: cb309931d704ba5e38fec202d46d99f0
+      size: 1557784
+    - path: data/processed/x_train.pkl
+      md5: 66a98a3b125463804563735582937c4f
+      size: 3160696
+    - path: data/processed/x_train_split.pkl
+      md5: 0dccec3ed95570737a9b501bc6f0c50e
+      size: 2118048
+    - path: data/processed/x_validation.pkl
+      md5: 517b92b94b5d74b3524d20bf1108520e
+      size: 1044248
+    - path: data/processed/y_test.pkl
+      md5: 8287c8f2b7d7243211b63e8013253d5d
+      size: 13339
+    - path: data/processed/y_train.pkl
+      md5: 1228793cebc6dfe3094b2de6659f1af7
+      size: 26923
+    - path: data/processed/y_train_split.pkl
+      md5: 12669e95b3e0a7565b9f339e22490c5a
+      size: 18087
+    - path: data/processed/y_validation.pkl
+      md5: 4d51b98004f5a431fab32834066fb9cb
+      size: 8987
+  train:
+    cmd: python src/models/train_model.py
+    deps:
+    - path: data/processed/mfcc_dataset.json
+      md5: 2cb121939602a2c4d50b48e6b6152fbd
+      size: 661805132
+    - path: data/processed/x_train.pkl
+      md5: 66a98a3b125463804563735582937c4f
+      size: 3160696
+    - path: data/processed/x_train_split.pkl
+      md5: 0dccec3ed95570737a9b501bc6f0c50e
+      size: 2118048
+    - path: data/processed/x_validation.pkl
+      md5: 517b92b94b5d74b3524d20bf1108520e
+      size: 1044248
+    - path: data/processed/y_train.pkl
+      md5: 1228793cebc6dfe3094b2de6659f1af7
+      size: 26923
+    - path: data/processed/y_train_split.pkl
+      md5: 12669e95b3e0a7565b9f339e22490c5a
+      size: 18087
+    - path: data/processed/y_validation.pkl
+      md5: 4d51b98004f5a431fab32834066fb9cb
+      size: 8987
+    - path: src/data/make_dataset.py
+      md5: e261859a218f2f5f47cba794cd1ba63e
+      size: 5305
+    params:
+      params.yaml:
+        train.model-name: Gaussian NB

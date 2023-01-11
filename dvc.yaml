@@ -1,0 +1,29 @@
+stages:
+  prepare:
+    cmd: python src/data/make_dataset.py
+    deps:
+      - src/data/make_dataset.py
+    outs:
+      - data/processed/mfcc_dataset.json
+      - data/processed/x_test.pkl
+      - data/processed/x_train.pkl
+      - data/processed/x_train_split.pkl
+      - data/processed/x_validation.pkl
+      - data/processed/y_test.pkl
+      - data/processed/y_train.pkl
+      - data/processed/y_train_split.pkl
+      - data/processed/y_validation.pkl
+  train:
+    cmd: python src/models/train_model.py
+    deps:
+      - src/data/make_dataset.py
+      - data/processed/mfcc_dataset.json
+      - data/processed/x_train.pkl
+      - data/processed/x_train_split.pkl
+      - data/processed/x_validation.pkl
+      - data/processed/y_train.pkl
+      - data/processed/y_train_split.pkl
+      - data/processed/y_validation.pkl
+    params:
+      - train.model-name
+
