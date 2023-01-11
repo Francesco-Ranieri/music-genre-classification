@@ -2,19 +2,35 @@ import json
 import math
 import os
 import pickle
+from io import BytesIO
 from pathlib import PosixPath
+from zipfile import ZipFile
 
 import librosa
 import numpy as np
 import pandas as pd
+import requests
 from sklearn.model_selection import train_test_split
 
-from src.pathUtils import PathUtils
+from src.pathUtils import PathUtils, is_dir_empty
 
 SAMPLE_RATE = 22050
-TRACK_DURATION = 30  # measured in seconds
+TRACK_DURATION = 30
 SAMPLES_PER_TRACK = SAMPLE_RATE * TRACK_DURATION
 NOT_ALLOWED = "jazz.00054.wav"
+
+
+def _extract_zip(zip_file, destination_path: PosixPath):
+    with ZipFile(zip_file) as zip:
+        zip.extractall(destination_path)
+
+
+def download_dataset_if_necessary():
+    if is_dir_empty(PathUtils.DATA_RAW_PATH):
+        response = requests.get(PathUtils.DATASET_URL)
+        _extract_zip(BytesIO(response.content), PathUtils.DATA_RAW_PATH)
+        _extract_zip(PathUtils.DATA_RAW_DATASET_GENRES_ZIP, PathUtils.DATA_RAW_DATASET)
+        os.remove(PathUtils.DATA_RAW_DATASET_GENRES_ZIP)
 
 
 def save_gtzan_data(path_to_save: PosixPath = PathUtils.DATA_PROCESSED_PATH):
@@ -114,5 +130,6 @@ def save_mfcc_data(dataset_path: str,
         json.dump(data, file, indent=4)
 
 
+download_dataset_if_necessary()
 save_gtzan_data()
 save_mfcc_data(PathUtils.MFCC_DATASET_RAW_PATH, PathUtils.MFCC_DATASET_PROCESSED_PATH, num_segments=10)
