@@ -42,8 +42,9 @@ class PathUtils:
     SRC_PATH = ROOT_PATH.joinpath("src")
 
     DATA_PATH = ROOT_PATH.joinpath("data")
-
     DATA_PROCESSED_PATH = DATA_PATH.joinpath("processed")
+    DATA_PROCESSED_GTZAN_PATH = DATA_PROCESSED_PATH.joinpath("gtzan_data")
+    DATA_PROCESSED_MFCC_PATH = DATA_PROCESSED_PATH.joinpath("mfcc_data")
     MFCC_DATASET_PROCESSED_PATH = DATA_PROCESSED_PATH.joinpath(Path("mfcc_dataset.json"))
 
     DATA_RAW_PATH = DATA_PATH.joinpath("raw")

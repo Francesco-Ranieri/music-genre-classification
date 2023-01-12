@@ -4,63 +4,72 @@ stages:
     cmd: python src/data/make_dataset.py
     deps:
     - path: src/data/make_dataset.py
-      md5: e261859a218f2f5f47cba794cd1ba63e
-      size: 5305
+      md5: f74ff904b9cd97cf53052cbe03fb1a32
+      size: 5723
     outs:
-    - path: data/processed/mfcc_dataset.json
-      md5: 2cb121939602a2c4d50b48e6b6152fbd
-      size: 661805132
-    - path: data/processed/x_test.pkl
-      md5: cb309931d704ba5e38fec202d46d99f0
-      size: 1557784
-    - path: data/processed/x_train.pkl
-      md5: 66a98a3b125463804563735582937c4f
-      size: 3160696
-    - path: data/processed/x_train_split.pkl
-      md5: 0dccec3ed95570737a9b501bc6f0c50e
-      size: 2118048
-    - path: data/processed/x_validation.pkl
-      md5: 517b92b94b5d74b3524d20bf1108520e
-      size: 1044248
-    - path: data/processed/y_test.pkl
-      md5: 8287c8f2b7d7243211b63e8013253d5d
-      size: 13339
-    - path: data/processed/y_train.pkl
-      md5: 1228793cebc6dfe3094b2de6659f1af7
-      size: 26923
-    - path: data/processed/y_train_split.pkl
-      md5: 12669e95b3e0a7565b9f339e22490c5a
-      size: 18087
-    - path: data/processed/y_validation.pkl
-      md5: 4d51b98004f5a431fab32834066fb9cb
-      size: 8987
+    - path: data/processed/gtzan_data/
+      md5: 7cd9fa402d6ab024776ff131a3bd2697.dir
+      size: 7948112
+      nfiles: 8
+    - path: data/processed/mfcc_data/
+      md5: 71161db5ec9fce9ae4501a5dd25f0983.dir
+      size: 225527504
+      nfiles: 8
   train:
     cmd: python src/models/train_model.py
     deps:
-    - path: data/processed/mfcc_dataset.json
-      md5: 2cb121939602a2c4d50b48e6b6152fbd
-      size: 661805132
-    - path: data/processed/x_train.pkl
+    - path: data/processed/gtzan_data/x_train.pkl
       md5: 66a98a3b125463804563735582937c4f
       size: 3160696
-    - path: data/processed/x_train_split.pkl
+    - path: data/processed/gtzan_data/x_train_split.pkl
       md5: 0dccec3ed95570737a9b501bc6f0c50e
       size: 2118048
-    - path: data/processed/x_validation.pkl
+    - path: data/processed/gtzan_data/x_validation.pkl
       md5: 517b92b94b5d74b3524d20bf1108520e
       size: 1044248
-    - path: data/processed/y_train.pkl
+    - path: data/processed/gtzan_data/y_train.pkl
       md5: 1228793cebc6dfe3094b2de6659f1af7
       size: 26923
-    - path: data/processed/y_train_split.pkl
+    - path: data/processed/gtzan_data/y_train_split.pkl
       md5: 12669e95b3e0a7565b9f339e22490c5a
       size: 18087
-    - path: data/processed/y_validation.pkl
+    - path: data/processed/gtzan_data/y_validation.pkl
       md5: 4d51b98004f5a431fab32834066fb9cb
       size: 8987
+    - path: data/processed/mfcc_data/x_train.pkl
+      md5: 2682c558e7b87f448ad3b35a993aa79b
+      size: 90448967
+    - path: data/processed/mfcc_data/x_train_split.pkl
+      md5: 95e83fc31d4a744c436f78837f3a0742
+      size: 60596807
+    - path: data/processed/mfcc_data/x_validation.pkl
+      md5: 6a8d93b6b0df5c695c8ccffff3e49b54
+      size: 29852327
+    - path: data/processed/mfcc_data/y_train.pkl
+      md5: 5153c589f71519ac80fb8fd7cc15cfe8
+      size: 26913
+    - path: data/processed/mfcc_data/y_train_split.pkl
+      md5: 017c5316e45b07db491810573e203f16
+      size: 18081
+    - path: data/processed/mfcc_data/y_validation.pkl
+      md5: 9b953b001bdc84167b952b4b86f0171d
+      size: 8985
     - path: src/data/make_dataset.py
-      md5: e261859a218f2f5f47cba794cd1ba63e
-      size: 5305
+      md5: f74ff904b9cd97cf53052cbe03fb1a32
+      size: 5723
+    - path: src/models/classes/base_model.py
+      md5: af1b303109e3bf5470090e68bff22f30
+      size: 566
+    - path: src/models/classes/gtzan_model.py
+      md5: 68c93cba752b1ea14948388f3fa1cd6b
+      size: 1777
+    - path: src/models/classes/mfcc_model.py
+      md5: 83291cfbe58f2f31514f4ab528e7ceb4
+      size: 1525
+    - path: src/models/train_model.py
+      md5: 059d958202e724f270534a1a64c67489
+      size: 271
     params:
       params.yaml:
-        train.model-name: Gaussian NB
+        train.GTZAN.model-name: Random Forest
+        train.MFCC.model-name: CNN

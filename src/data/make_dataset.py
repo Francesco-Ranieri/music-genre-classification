@@ -27,18 +27,19 @@ def _extract_zip(zip_file, destination_path: PosixPath):
 
 def download_dataset_if_necessary():
     if is_dir_empty(PathUtils.DATA_RAW_PATH):
+
+        for file in os.listdir(PathUtils.DATA_PROCESSED_PATH):
+            os.remove(file)
+
         response = requests.get(PathUtils.DATASET_URL)
         _extract_zip(BytesIO(response.content), PathUtils.DATA_RAW_PATH)
         _extract_zip(PathUtils.DATA_RAW_DATASET_GENRES_ZIP, PathUtils.DATA_RAW_DATASET)
         os.remove(PathUtils.DATA_RAW_DATASET_GENRES_ZIP)
 
 
-def save_gtzan_data(path_to_save: PosixPath = PathUtils.DATA_PROCESSED_PATH):
-    dataset = pd.read_csv(PathUtils.GTZAN_DATASET_RAW_PATH, sep=',')
-    dataset_x = dataset.drop(['label', 'filename'], axis=1)
-    dataset_y = np.array(dataset.label.astype(int))
-
-    x_train, x_test, y_train, y_test = train_test_split(dataset_x, dataset_y, test_size=0.33, random_state=0)
+def save_data(inputs, labels, path_to_save):
+    os.mkdir(path_to_save)
+    x_train, x_test, y_train, y_test = train_test_split(inputs, labels, test_size=0.33, random_state=0)
     x_train_split, x_validation, y_train_split, y_validation = train_test_split(x_train, y_train, test_size=0.33,
                                                                                 random_state=0)
     data_to_save = {
@@ -58,14 +59,23 @@ def save_gtzan_data(path_to_save: PosixPath = PathUtils.DATA_PROCESSED_PATH):
         pickle.dump(v, open(path, "wb"))
 
 
+def save_gtzan_data(path_to_save: PosixPath = PathUtils.DATA_PROCESSED_GTZAN_PATH):
+    dataset = pd.read_csv(PathUtils.GTZAN_DATASET_RAW_PATH, sep=',')
+    dataset_x = dataset.drop(['label', 'filename'], axis=1)
+    dataset_y = np.array(dataset.label.astype(int))
+    save_data(dataset_x, dataset_y, path_to_save)
+
+
 def save_mfcc_data(dataset_path: str,
                    json_path: str,
                    num_mfcc: int = 13,
                    n_fft: int = 2048,
                    hop_length: int = 512,
-                   num_segments: int = 5):
+                   num_segments: int = 5,
+                   path_to_save: PosixPath = PathUtils.DATA_PROCESSED_MFCC_PATH):
     """Extracts MFCCs from music dataset and saves them
         into a json file along witgh genre labels.
+        :param path_to_save: path to save split dataset
         :param dataset_path: Path to dataset
         :param json_path: Path to json file used to save MFCCs
         :param num_mfcc: Number of coefficients to extract
@@ -125,9 +135,9 @@ def save_mfcc_data(dataset_path: str,
                             data["labels"].append(i - 1)
                             print("{}, segment:{}".format(file_path, num_segment + 1))
 
-    # save MFCCs to json file
-    with open(json_path, "w") as file:
-        json.dump(data, file, indent=4)
+    dataset_x = np.array(data["mfcc"])[..., np.newaxis]
+    dataset_y = np.array(data["labels"])[..., np.newaxis]
+    save_data(dataset_x, dataset_y, path_to_save)
 
 
 download_dataset_if_necessary()

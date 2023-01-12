@@ -1,2 +1,5 @@
 train:
-  model-name: 'Gaussian NB'
+  GTZAN:
+    model-name: 'Random Forest'
+  MFCC:
+    model-name: 'CNN'
