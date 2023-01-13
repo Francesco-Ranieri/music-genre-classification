@@ -76,18 +76,12 @@ stages:
   train mfcc:
     cmd: python src/models/train_model.py --dataset mfcc
     deps:
-    - path: data/processed/mfcc_data/x_train.pkl
-      md5: 2682c558e7b87f448ad3b35a993aa79b
-      size: 90448967
     - path: data/processed/mfcc_data/x_train_split.pkl
       md5: 95e83fc31d4a744c436f78837f3a0742
       size: 60596807
     - path: data/processed/mfcc_data/x_validation.pkl
       md5: 6a8d93b6b0df5c695c8ccffff3e49b54
       size: 29852327
-    - path: data/processed/mfcc_data/y_train.pkl
-      md5: 5153c589f71519ac80fb8fd7cc15cfe8
-      size: 26913
     - path: data/processed/mfcc_data/y_train_split.pkl
       md5: 017c5316e45b07db491810573e203f16
       size: 18081
@@ -101,8 +95,8 @@ stages:
       md5: af1b303109e3bf5470090e68bff22f30
       size: 566
     - path: src/models/classes/mfcc_model.py
-      md5: 83291cfbe58f2f31514f4ab528e7ceb4
-      size: 1525
+      md5: 5e1f5fcb9f36d137cabb5fe450abaffe
+      size: 1343
     - path: src/models/train_model.py
       md5: f6bb2c3a1800accbf0268eb9bf9de060
       size: 571
@@ -112,18 +106,12 @@ stages:
   train gtzan:
     cmd: python src/models/train_model.py --dataset gtzan
     deps:
-    - path: data/processed/gtzan_data/x_train.pkl
-      md5: 66a98a3b125463804563735582937c4f
-      size: 3160696
     - path: data/processed/gtzan_data/x_train_split.pkl
       md5: 0dccec3ed95570737a9b501bc6f0c50e
       size: 2118048
     - path: data/processed/gtzan_data/x_validation.pkl
       md5: 517b92b94b5d74b3524d20bf1108520e
       size: 1044248
-    - path: data/processed/gtzan_data/y_train.pkl
-      md5: 1228793cebc6dfe3094b2de6659f1af7
-      size: 26923
     - path: data/processed/gtzan_data/y_train_split.pkl
       md5: 12669e95b3e0a7565b9f339e22490c5a
       size: 18087
@@ -137,8 +125,8 @@ stages:
       md5: af1b303109e3bf5470090e68bff22f30
       size: 566
     - path: src/models/classes/gtzan_model.py
-      md5: 68c93cba752b1ea14948388f3fa1cd6b
-      size: 1777
+      md5: 82addd954a4c9c54062ea161307feb5a
+      size: 1619
     - path: src/models/train_model.py
       md5: f6bb2c3a1800accbf0268eb9bf9de060
       size: 571

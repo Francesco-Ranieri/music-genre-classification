@@ -13,14 +13,9 @@ class MfccModel(BaseModel):
 
     def __init__(self):
         data = get_processed_data(Dataset.MFCC)
-        self.x_train = data["x_train"]
-        self.y_train = data["y_train"]
 
-        self.x_train_split = data["x_train_split"]
-        self.y_train_split = data["y_train_split"]
-
-        self.x_test = data["x_test"]
-        self.y_test = data["y_test"]
+        self.x_train = data["x_train_split"]
+        self.y_train = data["y_train_split"]
 
         self.x_validation = data["x_validation"]
         self.y_validation = data["y_validation"]
@@ -37,8 +32,8 @@ class MfccModel(BaseModel):
         with mlflow.start_run(run_name=model_name):
             mlflow.autolog()
 
-            model.fit(self.x_train_split,
-                      self.y_train_split,
+            model.fit(self.x_train,
+                      self.y_train,
                       validation_data=(self.x_validation, self.y_validation),
                       batch_size=32,
                       epochs=50)

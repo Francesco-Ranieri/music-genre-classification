@@ -15,14 +15,9 @@ class GtzanModel(BaseModel):
 
     def __init__(self):
         data = get_processed_data()
-        self.x_train = data["x_train"]
-        self.y_train = data["y_train"]
 
-        self.x_train_split = data["x_train_split"]
-        self.y_train_split = data["y_train_split"]
-
-        self.x_test = data["x_test"]
-        self.y_test = data["y_test"]
+        self.x_train = data["x_train_split"]
+        self.y_train = data["y_train_split"]
 
         self.x_validation = data["x_validation"]
         self.y_validation = data["y_validation"]
@@ -43,8 +38,8 @@ class GtzanModel(BaseModel):
                                                    0,
                                                    self.x_train,
                                                    self.y_train,
-                                                   self.x_test,
-                                                   self.y_test,
+                                                   self.x_validation,
+                                                   self.y_validation,
                                                    fit=True)
 
             mlflow.sklearn.log_model(sk_model=trained_model,
