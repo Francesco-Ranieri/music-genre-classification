@@ -6,29 +6,33 @@ stages:
     outs:
       - data/processed/gtzan_data/
       - data/processed/mfcc_data/
-  train:
-    cmd: python src/models/train_model.py
+  train gtzan:
+    cmd: python src/models/train_model.py --dataset gtzan
     deps:
       - src/data/make_dataset.py
-
-      - data/processed/mfcc_data/x_train.pkl
-      - data/processed/mfcc_data/x_train_split.pkl
-      - data/processed/mfcc_data/x_validation.pkl
-      - data/processed/mfcc_data/y_train.pkl
-      - data/processed/mfcc_data/y_train_split.pkl
-      - data/processed/mfcc_data/y_validation.pkl
-
       - data/processed/gtzan_data/x_train.pkl
       - data/processed/gtzan_data/x_train_split.pkl
       - data/processed/gtzan_data/x_validation.pkl
       - data/processed/gtzan_data/y_train.pkl
       - data/processed/gtzan_data/y_train_split.pkl
       - data/processed/gtzan_data/y_validation.pkl
-
       - src/models/train_model.py
       - src/models/classes/gtzan_model.py
-      - src/models/classes/mfcc_model.py
       - src/models/classes/base_model.py
     params:
       - train.GTZAN.model-name
+  train mfcc:
+    cmd: python src/models/train_model.py --dataset mfcc
+    deps:
+      - src/data/make_dataset.py
+      - data/processed/mfcc_data/x_train.pkl
+      - data/processed/mfcc_data/x_train_split.pkl
+      - data/processed/mfcc_data/x_validation.pkl
+      - data/processed/mfcc_data/y_train.pkl
+      - data/processed/mfcc_data/y_train_split.pkl
+      - data/processed/mfcc_data/y_validation.pkl
+      - src/models/train_model.py
+      - src/models/classes/mfcc_model.py
+      - src/models/classes/base_model.py
+    params:
       - train.MFCC.model-name
