@@ -1,5 +1,6 @@
 import dvc.api
 import mlflow
+import dotenv
 
 from src.data.data_utils import get_processed_data, Dataset
 from src.models.classes.base_model import BaseModel
@@ -12,6 +13,7 @@ class MfccModel(BaseModel):
     """
 
     def __init__(self):
+        dotenv.load_dotenv(override=True)
         data = get_processed_data(Dataset.MFCC)
 
         self.x_train = data["x_train_split"]
