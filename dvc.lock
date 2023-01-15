@@ -95,11 +95,11 @@ stages:
       md5: af1b303109e3bf5470090e68bff22f30
       size: 566
     - path: src/models/classes/mfcc_model.py
-      md5: 5e1f5fcb9f36d137cabb5fe450abaffe
-      size: 1343
+      md5: 0cead32d31eff8cccab7781a66dee302
+      size: 1401
     - path: src/models/train_model.py
-      md5: f6bb2c3a1800accbf0268eb9bf9de060
-      size: 571
+      md5: afa8f8ae572e90020729a84c16f12c0b
+      size: 519
     params:
       params.yaml:
         train.MFCC.model-name: CNN
@@ -125,11 +125,11 @@ stages:
       md5: af1b303109e3bf5470090e68bff22f30
       size: 566
     - path: src/models/classes/gtzan_model.py
-      md5: 82addd954a4c9c54062ea161307feb5a
-      size: 1619
+      md5: 9c34c7a1daca4d112b8b83d3728866ad
+      size: 1732
     - path: src/models/train_model.py
-      md5: f6bb2c3a1800accbf0268eb9bf9de060
-      size: 571
+      md5: afa8f8ae572e90020729a84c16f12c0b
+      size: 519
     params:
       params.yaml:
         train.GTZAN.model-name: Random Forest
