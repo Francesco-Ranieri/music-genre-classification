@@ -9,24 +9,6 @@ def predict(audio_file):
     return prediction
 
 
-"""
-with gr.Blocks() as demo:
-    gr.Markdown("Music Genre Classification")
-
-    with gr.Tab("Upload audio"):
-        raw_audio_input = gr.Audio()
-        raw_audio_output = gr.Textbox("Music Genre Predicted")
-        raw_audio_button = gr.Button("Predict")
-
-    with gr.Tab("Record audio"):
-        record_audio_input = gr.inputs.Audio(source="microphone", type="filepath", optional=True, label="Music Recorder")
-        record_audio_output = gr.Textbox()
-        record_audio_button = gr.Button("Predict")
-
-    record_audio_button.click(predict, inputs=record_audio_input, outputs=record_audio_output)
-    raw_audio_button.click(predict, inputs=raw_audio_input, outputs=raw_audio_output)
-"""
-
 demo = gr.Interface(
     fn=predict,
     inputs=gr.Audio(),
