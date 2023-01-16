@@ -33,13 +33,15 @@ def download_dataset_if_necessary():
 
         response = requests.get(PathUtils.DATASET_URL)
         _extract_zip(BytesIO(response.content), PathUtils.DATA_RAW_PATH)
-        _extract_zip(PathUtils.DATA_RAW_DATASET_GENRES_ZIP, PathUtils.DATA_RAW_DATASET)
+        _extract_zip(PathUtils.DATA_RAW_DATASET_GENRES_ZIP,
+                     PathUtils.DATA_RAW_DATASET)
         os.remove(PathUtils.DATA_RAW_DATASET_GENRES_ZIP)
 
 
 def save_data(inputs, labels, path_to_save):
     os.mkdir(path_to_save)
-    x_train, x_test, y_train, y_test = train_test_split(inputs, labels, test_size=0.33, random_state=0)
+    x_train, x_test, y_train, y_test = train_test_split(
+        inputs, labels, test_size=0.33, random_state=0)
     x_train_split, x_validation, y_train_split, y_validation = train_test_split(x_train, y_train, test_size=0.33,
                                                                                 random_state=0)
     data_to_save = {
@@ -112,7 +114,8 @@ def save_mfcc_data(dataset_path: str,
                 # load audio file
                 file_path = os.path.join(dirpath, filename)
                 if filename != NOT_ALLOWED:
-                    signal, sample_rate = librosa.load(file_path, sr=SAMPLE_RATE)
+                    signal, sample_rate = librosa.load(
+                        file_path, sr=SAMPLE_RATE)
 
                     # process all segments of audio file
                     for num_segment in range(num_segments):
@@ -133,7 +136,8 @@ def save_mfcc_data(dataset_path: str,
                         if len(mfcc) == num_mfcc_vectors_per_segment:
                             data["mfcc"].append(mfcc.tolist())
                             data["labels"].append(i - 1)
-                            print("{}, segment:{}".format(file_path, num_segment + 1))
+                            print("{}, segment:{}".format(
+                                file_path, num_segment + 1))
 
     dataset_x = np.array(data["mfcc"])[..., np.newaxis]
     dataset_y = np.array(data["labels"])[..., np.newaxis]
@@ -142,4 +146,5 @@ def save_mfcc_data(dataset_path: str,
 
 download_dataset_if_necessary()
 save_gtzan_data()
-save_mfcc_data(PathUtils.MFCC_DATASET_RAW_PATH, PathUtils.MFCC_DATASET_PROCESSED_PATH, num_segments=10)
+save_mfcc_data(PathUtils.MFCC_DATASET_RAW_PATH,
+               PathUtils.MFCC_DATASET_PROCESSED_PATH, num_segments=10)

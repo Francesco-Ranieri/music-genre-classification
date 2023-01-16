@@ -44,12 +44,12 @@ def evaluate_classifier(classifier,
     print("F1-macro: ", f_macro)
 
     metrics_calc = {
-                        "accuracy": accuracy,
-                        "precision": precision,
-                        "recall": recall,
-                        "f_micro": f_micro,
-                        "f_macro": f_macro
-                    }
+        "accuracy": accuracy,
+        "precision": precision,
+        "recall": recall,
+        "f_micro": f_micro,
+        "f_macro": f_macro
+    }
 
     return metrics_calc, classifier
 
@@ -73,11 +73,20 @@ def _evaluate_classifier_with_folds(classifier,
 
         print(f"Model fitted. Predicting on validation set...")
         predicted = classifier.predict(x_train_array[validation_index])
-        accuracy = accuracy + metrics.accuracy_score(y_train[validation_index], predicted)
-        precision = precision + metrics.precision_score(y_train[validation_index], predicted, average='micro')
-        recall = recall + metrics.recall_score(y_train[validation_index], predicted, average='micro')
-        f_micro = f_micro + metrics.f1_score(y_train[validation_index], predicted, average='micro')
-        f_macro = f_macro + metrics.f1_score(y_train[validation_index], predicted, average='macro')
+        accuracy = accuracy + \
+            metrics.accuracy_score(y_train[validation_index], predicted)
+        precision = precision + \
+            metrics.precision_score(
+                y_train[validation_index], predicted, average='micro')
+        recall = recall + \
+            metrics.recall_score(
+                y_train[validation_index], predicted, average='micro')
+        f_micro = f_micro + \
+            metrics.f1_score(y_train[validation_index],
+                             predicted, average='micro')
+        f_macro = f_macro + \
+            metrics.f1_score(y_train[validation_index],
+                             predicted, average='macro')
 
     accuracy /= n_folds
     precision /= n_folds
@@ -102,8 +111,10 @@ def _evaluate_classifier_with_split(classifier,
     predicted = classifier.predict(X_validation_split)
 
     accuracy = metrics.accuracy_score(y_validation_split, predicted)
-    precision = metrics.precision_score(y_validation_split, predicted, average='macro')
-    recall = metrics.recall_score(y_validation_split, predicted, average='macro')
+    precision = metrics.precision_score(
+        y_validation_split, predicted, average='macro')
+    recall = metrics.recall_score(
+        y_validation_split, predicted, average='macro')
     f_micro = metrics.f1_score(y_validation_split, predicted, average='micro')
     f_macro = metrics.f1_score(y_validation_split, predicted, average='macro')
 
