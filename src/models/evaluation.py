@@ -66,12 +66,12 @@ def _evaluate_classifier_with_folds(classifier,
     for idx, (train_index, validation_index) in enumerate(k_fold.split(x_train_array)):
 
         print(f"Fold #{idx}")
-        print(f"Fitting the model...")
+        print("Fitting the model...")
 
         if fit:
             classifier.fit(x_train_array[train_index], y_train[train_index])
 
-        print(f"Model fitted. Predicting on validation set...")
+        print("Model fitted. Predicting on validation set...")
         predicted = classifier.predict(x_train_array[validation_index])
         accuracy = accuracy + \
             metrics.accuracy_score(y_train[validation_index], predicted)
@@ -104,10 +104,10 @@ def _evaluate_classifier_with_split(classifier,
                                     y_train_split,
                                     y_validation_split):
     if fit:
-        print(f"Fitting the model...")
+        print("Fitting the model...")
         classifier.fit(X_train_split, y_train_split)
 
-    print(f"Model fitted. Prediting on validation set...")
+    print("Model fitted. Prediting on validation set...")
     predicted = classifier.predict(X_validation_split)
 
     accuracy = metrics.accuracy_score(y_validation_split, predicted)

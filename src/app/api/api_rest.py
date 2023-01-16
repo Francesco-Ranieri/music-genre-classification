@@ -53,7 +53,7 @@ def predict_gtzan_feature(input_data: DataFrame, model_name: ModelAllowed):
         row = row.values.reshape(1, -1)
         odds = model_loaded.predict_proba(row)
         segment_odd = segment_odd + odds[0]
-    return segment_odd/10
+    return segment_odd / 10
 
 
 def predict_mfcc_feature(input_data, model_name: ModelAllowed):
@@ -70,7 +70,7 @@ def predict_mfcc_feature(input_data, model_name: ModelAllowed):
         data = np.array([data, ])
         odds = model_loaded.predict(data)
         segment_odd = segment_odd + odds[0]
-    return segment_odd/10
+    return segment_odd / 10
 
 
 def get_prediction(odds):
