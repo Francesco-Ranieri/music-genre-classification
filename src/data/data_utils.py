@@ -18,7 +18,8 @@ def get_processed_data(dataset: Enum = Dataset.GTZAN):
     path = PathUtils.DATA_PROCESSED_GTZAN_PATH
     if dataset == Dataset.MFCC:
         path = PathUtils.DATA_PROCESSED_MFCC_PATH
-    data_to_load = [file_name for file_name in os.listdir(path) if ".pkl" in file_name]
+    data_to_load = [file_name for file_name in os.listdir(
+        path) if ".pkl" in file_name]
 
     data_loaded = {}
 

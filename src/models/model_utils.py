@@ -41,7 +41,7 @@ def get_model_from_name(model_name: str, dataset_type: Dataset):
                        activation='relu',
                        kernel_regularizer=regularizers.l2(l=0.01),
                        kernel_initializer='he_normal'),
-                MaxPooling2D((2,2),
+                MaxPooling2D((2, 2),
                              strides=(2, 2),
                              padding='same'),
                 Conv2D(32,
@@ -59,7 +59,8 @@ def get_model_from_name(model_name: str, dataset_type: Dataset):
             ])
 
             optimizer_cnn = keras.optimizers.Adam(learning_rate=0.0001)
-            model.compile(optimizer=optimizer_cnn, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+            model.compile(optimizer=optimizer_cnn,
+                          loss='sparse_categorical_crossentropy', metrics=['accuracy'])
             model.summary()
 
     else:

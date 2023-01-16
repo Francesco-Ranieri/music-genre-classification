@@ -30,7 +30,6 @@ class GtzanModel(BaseModel):
         self.model_name = params['train']['GTZAN']['model-name']
 
     def train(self):
-
         """
         :return:
         """

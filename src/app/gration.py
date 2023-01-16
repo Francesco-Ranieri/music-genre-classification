@@ -12,9 +12,9 @@ def predict(audio_file):
 demo = gr.Interface(
     fn=predict,
     inputs=gr.Audio(),
-    outputs = gr.Label(),
+    outputs=gr.Label(),
     allow_flagging="never"
-    #examples=[
+    # examples=[
     #     [os.path.join(os.path.dirname(__file__),"audio/recording1.wav")],
     #    [os.path.join(os.path.dirname(__file__),"audio/cantina.wav")],
     # ],

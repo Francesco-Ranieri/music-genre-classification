@@ -21,7 +21,6 @@ class FeatureExtractor:
         self.samples_per_segment = int(self.sample_per_track / 10)
 
     def _save_file(self, audio_array: np.array):
-
         """
         :param audio_array:
         :return:
@@ -31,7 +30,6 @@ class FeatureExtractor:
         write(self.path_file, self.sample_rate, scaled)
 
     def extract_feature(self, audio_array, num_segment: int = 10):
-
         """
         :param audio_array:
         :param num_segment:
@@ -49,13 +47,14 @@ class FeatureExtractor:
             start = self.samples_per_segment * segment
             finish = start + self.samples_per_segment
             signal_split = signal[start:finish]
-            gtzan_features.append(self._extract_gtzan_feature_from_segment(signal_split))
-            mfcc_features.append(self._extract_and_format_mfcc_feature_from_segment(signal_split))
+            gtzan_features.append(
+                self._extract_gtzan_feature_from_segment(signal_split))
+            mfcc_features.append(
+                self._extract_and_format_mfcc_feature_from_segment(signal_split))
 
         return pd.DataFrame(data=gtzan_features), np.array(mfcc_features)[..., np.newaxis]
 
     def _extract_gtzan_feature_from_segment(self, signal):
-
         """
         :param signal:
         :return:
@@ -64,14 +63,20 @@ class FeatureExtractor:
         chroma_stft_var = librosa.feature.chroma_stft(signal).var()
         rms_mean = np.mean(librosa.feature.rms(signal))
         rms_var = librosa.feature.rms(signal).var()
-        spectral_centroid_mean = np.mean(librosa.feature.spectral_centroid(signal))
+        spectral_centroid_mean = np.mean(
+            librosa.feature.spectral_centroid(signal))
         spectral_centroid_var = librosa.feature.spectral_centroid(signal).var()
-        spectral_bandwidth_mean = np.mean(librosa.feature.spectral_bandwidth(signal))
-        spectral_bandwidth_var = librosa.feature.spectral_bandwidth(signal).var()
-        spectral_rolloff_mean = np.mean(librosa.feature.spectral_rolloff(signal))
+        spectral_bandwidth_mean = np.mean(
+            librosa.feature.spectral_bandwidth(signal))
+        spectral_bandwidth_var = librosa.feature.spectral_bandwidth(
+            signal).var()
+        spectral_rolloff_mean = np.mean(
+            librosa.feature.spectral_rolloff(signal))
         spectral_rolloff_var = librosa.feature.spectral_rolloff(signal).var()
-        zero_crossing_rate_mean = np.mean(librosa.feature.zero_crossing_rate(signal))
-        zero_crossing_rate_var = librosa.feature.zero_crossing_rate(signal).var()
+        zero_crossing_rate_mean = np.mean(
+            librosa.feature.zero_crossing_rate(signal))
+        zero_crossing_rate_var = librosa.feature.zero_crossing_rate(
+            signal).var()
         harmonic_mean = np.mean(librosa.effects.harmonic(signal))
         harmonic_var = librosa.effects.harmonic(signal).var()
         _, y_perceptr = librosa.effects.hpss(signal)
@@ -112,7 +117,8 @@ class FeatureExtractor:
         return data
 
     def _extract_and_format_mfcc_feature_from_segment(self, signal):
-        num_mfcc_vectors_per_segment = math.ceil(self.samples_per_segment / self.hop_length)
+        num_mfcc_vectors_per_segment = math.ceil(
+            self.samples_per_segment / self.hop_length)
         mfcc = self._extract_mfcc_feature(signal, 13)
         mfcc = mfcc.T
         mfcc_data = []
@@ -121,7 +127,7 @@ class FeatureExtractor:
 
         return mfcc.tolist()
 
-    def _extract_mfcc_feature(self, signal, n_mfcc:int = 20):
+    def _extract_mfcc_feature(self, signal, n_mfcc: int = 20):
         return librosa.feature.mfcc(y=signal,
                                     sr=self.sample_rate,
                                     n_mfcc=n_mfcc,
