@@ -1,0 +1,23 @@
+FROM python:3.8-slim
+
+WORKDIR dir/
+
+RUN apt-get update \
+    && apt-get install gcc -y \
+    && apt-get clean
+
+COPY requirements_fe.txt .
+
+RUN pip install -r ./requirements_fe.txt \
+    && rm -rf /root/.cache/pip
+
+COPY src/__init__.py src/
+COPY src/app/ src/app
+
+COPY setup.py .
+
+RUN pip install .
+
+# CMD python3 src/app/gradio_app.py
+ENTRYPOINT ["python", "src/app/gradio_app.py"]
+# ENTRYPOINT ["tail", "-f", "/dev/null"]
