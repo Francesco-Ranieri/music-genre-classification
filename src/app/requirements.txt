@@ -1,3 +1,0 @@
-gradio==3.16.2
-librosa==0.9.2
-gtzan-feat-extractor==0.1 # my package

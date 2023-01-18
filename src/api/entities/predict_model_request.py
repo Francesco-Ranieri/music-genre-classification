@@ -1,8 +1,7 @@
 from typing import List
 
 from pydantic import BaseModel
-from src.models.model_utils import ModelAllowed
-
+from src.api.entities.model_allowed_enum import ModelAllowed
 
 class PredictModelRequest(BaseModel):
     audio_array: List = []

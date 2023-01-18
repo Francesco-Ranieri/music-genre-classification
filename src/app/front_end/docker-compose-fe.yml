@@ -1,0 +1,7 @@
+version: '3.9'
+services:
+  gradio:
+    container_name: gradio_web_app
+    image: python:3.8
+    ports:
+      - "7860:7860"

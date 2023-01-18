@@ -4,9 +4,9 @@ import numpy as np
 from fastapi import FastAPI
 from feat_extractor import FeatureExtractor
 from pandas import DataFrame
+from src.api.entities.predict_model_request import PredictModelRequest
+from src.api.entities.model_allowed_enum import ModelAllowed
 
-from src.app.api.entities.model_allowed_enum import ModelAllowed
-from src.app.api.entities.predict_model_request import PredictModelRequest
 
 app = FastAPI()
 
