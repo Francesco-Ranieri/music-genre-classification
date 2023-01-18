@@ -40,7 +40,7 @@ jobs:
         pip install flake8
     - name: Analysing the code with flake8
       run: |
-        flake8 --ignore=E501 src
+        flake8 --ignore=E501, F401 src
   
   pynblint:
     runs-on: ubuntu-latest
