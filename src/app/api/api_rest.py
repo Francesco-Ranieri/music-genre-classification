@@ -1,38 +1,42 @@
 import dotenv
 import mlflow
 import numpy as np
+from fastapi import FastAPI
+from feat_extractor import FeatureExtractor
 from pandas import DataFrame
 
-from src.features.extract_feature import FeatureExtractor
-# will be a rest api
-# @predict
-from src.models.model_utils import ModelAllowed
-from src.visualization.visualization_utils import get_human_readable_label
+from src.app.api.entities.model_allowed_enum import ModelAllowed
+from src.app.api.entities.predict_model_request import PredictModelRequest
+
+app = FastAPI()
 
 
-def predict_genre_music(audio_array,
-                        gtzan_model: ModelAllowed = ModelAllowed.RANDOM_FOREST,
-                        mfcc_model: ModelAllowed = ModelAllowed.CNN):
+@app.get("/")
+async def read_main():
+    return {"Server is working !!"}
+
+
+@app.post("/predict_music")
+async def predict_genre_music(predict_request: PredictModelRequest):
     """
-    :param mfcc_model:
-    :param gtzan_model:
-    :param audio_array:
+    :param predict_request:
     :return:
     """
+    req = predict_request.dict()
     dotenv.load_dotenv(override=True)
-
     feature_extractor = FeatureExtractor()
 
     gtzan_features, mfcc_features = feature_extractor.extract_feature(
-        audio_array=audio_array)
+        audio_array=req["audio_array"])
     gtzan_predictions = predict_gtzan_feature(
-        input_data=gtzan_features, model_name=gtzan_model)
+        input_data=gtzan_features, model_name=req["gtzan_model"])
     mfcc_predictions = predict_mfcc_feature(
-        input_data=mfcc_features, model_name=mfcc_model)
+        input_data=mfcc_features, model_name=req["mfcc_model"])
 
     mean_prediction = np.mean((gtzan_predictions, mfcc_predictions), axis=0)
     label_prediction = get_prediction(mean_prediction)
 
+    print(get_human_readable_label(label_prediction))
     return get_human_readable_label(label_prediction)
 
 
@@ -81,3 +85,19 @@ def get_prediction(odds):
 
     hig_prob = np.amax(odds)
     return np.where(odds == hig_prob)[0][0]
+
+
+label = ['blues',
+         'classical',
+         'country',
+         'disco',
+         'hip hop',
+         'jazz',
+         'metal',
+         'pop',
+         'reggae',
+         'rock']
+
+
+def get_human_readable_label(label_number: int):
+    return label[label_number]
