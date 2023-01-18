@@ -10,10 +10,9 @@ from scipy.io.wavfile import write
 class FeatureExtractor:
     num_segment = 10
     duration = 66149
-    n_fft = 2048
-    hop_length = 512
     sample_rate = 22050
     track_duration = 30
+    hop_length = 512
     path_file = 'temp.wav'
 
     def __init__(self):
@@ -130,6 +129,8 @@ class FeatureExtractor:
     def _extract_mfcc_feature(self, signal, n_mfcc: int = 20):
         return librosa.feature.mfcc(y=signal,
                                     sr=self.sample_rate,
+                                    S=None,
                                     n_mfcc=n_mfcc,
-                                    n_fft=self.n_fft,
-                                    hop_length=self.hop_length)
+                                    dct_type=2,
+                                    norm="ortho",
+                                    lifter=0)
