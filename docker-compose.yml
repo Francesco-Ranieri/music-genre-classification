@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  gradio-app:
+    build:
+      context: .
+      dockerfile: Dockerfile-fe
+    ports:
+      - "7860:7860"
+  api-rest:
+    build:
+      context: .
+      dockerfile: Dockerfile-be
+    env_file: .env
+    ports:
+      - "8000:8000"
