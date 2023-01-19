@@ -11,6 +11,7 @@ COPY requirements_be.txt .
 RUN pip install -r ./requirements_be.txt \
     && rm -rf /root/.cache/pip
 
+COPY .env .
 COPY src/__init__.py src/
 COPY src/api/ src/api
 
