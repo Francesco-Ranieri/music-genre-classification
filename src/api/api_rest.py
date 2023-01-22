@@ -13,7 +13,7 @@ app = FastAPI()
 
 @app.get("/")
 async def read_main():
-    return {"Server is working !!!"}
+    return {"Server is working !"}
 
 
 @app.post("/predict_music")
