@@ -29,7 +29,7 @@ demo = gr.Interface(
     outputs=gr.Label(label='Predicted Genre'),
     allow_flagging='never',
     title='Music Genre Classification',
-    description='This is a Music Genre Classification trained on GTZAN dataset and based on a novel ensemble approach'
+    description='This is a Music Genre Classification model trained on GTZAN dataset and based on a novel ensemble approach'
 )
 
 demo.launch(debug=True, share=False, server_name='0.0.0.0')

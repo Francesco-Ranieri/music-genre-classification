@@ -1,22 +1,22 @@
-name: Deploy to Amazon ECS
+name: Deploy to Amazon ECS the APP module
 
 on:
   push:
     branches:
       - master
     paths:
-      - '**/src/api/**'
+      - '**/src/app/**'
 
 env:
   AWS_REGION: us-east-1 # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: music_genre_classification_api # set this to your Amazon ECR repository name
-  ECS_SERVICE: apiService # set this to your Amazon ECS service name
+  ECR_REPOSITORY: music_genre_classification_app # set this to your Amazon ECR repository name
+  ECS_SERVICE: appService # set this to your Amazon ECS service name
   ECS_CLUSTER: dev # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION:
-    apiTask.json # set this to the path to your Amazon ECS task definition
-  ECS_TASK_DEFINITION_NAME: apiTask
+    appDev.json # set this to the path to your Amazon ECS task definition
+  ECS_TASK_DEFINITION_NAME: appDev
   CONTAINER_NAME:
-    apiContainer # set this to the name of the container in the
+    appContainer # set this to the name of the container in the
   # containerDefinitions section of your task definition
 
 jobs:
