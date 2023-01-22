@@ -42,7 +42,7 @@ jobs:
         with:
           registry-type: public
 
-      - name: API - Build, tag, and push image to Amazon ECR
+      - name: APP - Build, tag, and push image to Amazon ECR
         id: build-image
         env:
           ECR_REGISTRY: public.ecr.aws/j3b4q1x6
@@ -55,11 +55,11 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
-      - name: API- Download task definition
+      - name: APP - Download task definition
         run: |
           aws ecs describe-task-definition --task-definition ${{ env.ECS_TASK_DEFINITION_NAME }} --query taskDefinition > ${{ env.ECS_TASK_DEFINITION }}
 
-      - name: API - Fill in the new image ID in the Amazon ECS task definition
+      - name: APP - Fill in the new image ID in the Amazon ECS task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
@@ -67,7 +67,7 @@ jobs:
           container-name: ${{ env.CONTAINER_NAME }}
           image: ${{ steps.build-image.outputs.image }}
 
-      - name: API - Deploy Amazon ECS task definition
+      - name: APP - Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
