@@ -3,7 +3,6 @@ FROM python:3.8-slim
 WORKDIR dir/
 
 RUN apt-get update \
-    && apt-get install gcc -y \
     && apt-get clean
 
 COPY requirements_fe.txt .
@@ -18,6 +17,7 @@ COPY setup.py .
 
 RUN pip install .
 
-# CMD python3 src/app/gradio_app.py
+EXPOSE 7860
+
 ENTRYPOINT ["python", "src/app/gradio_app.py"]
 # ENTRYPOINT ["tail", "-f", "/dev/null"]
