@@ -1,12 +1,14 @@
+import logging as log
+
 import dotenv
 import mlflow
 import numpy as np
 from fastapi import FastAPI
 from feat_extractor import FeatureExtractor
 from pandas import DataFrame
-from src.api.entities.predict_model_request import PredictModelRequest
+
 from src.api.entities.model_allowed_enum import ModelAllowed
-import logging as log
+from src.api.entities.predict_model_request import PredictModelRequest
 
 app = FastAPI()
 
@@ -37,7 +39,7 @@ async def predict_genre_music(predict_request: PredictModelRequest):
     mean_prediction = np.mean((gtzan_predictions, mfcc_predictions), axis=0)
     label_prediction = get_prediction(mean_prediction)
 
-    print(get_human_readable_label(label_prediction))
+    log.info(get_human_readable_label(label_prediction))
     return get_human_readable_label(label_prediction)
 
 
