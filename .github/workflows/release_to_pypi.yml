@@ -24,9 +24,9 @@ jobs:
       - name: Build source and wheel distributions
         run: |
           python -m pip install --upgrade build twine
-          cd src/feat_extractor
+          cd src
           python -m build
-          twine check --strict dist/*
+          twine check dist/*
       - name: Publish distribution to PyPI
         uses: pypa/gh-action-pypi-publish@master
         with:

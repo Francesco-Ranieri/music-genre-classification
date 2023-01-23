@@ -124,8 +124,8 @@ def save_mfcc_data(dataset_path: str,
                         finish = start + samples_per_segment
 
                         # extract mfcc
-                        mfcc = librosa.feature.mfcc(signal[start:finish],
-                                                    sample_rate,
+                        mfcc = librosa.feature.mfcc(y=signal[start:finish],
+                                                    sr=sample_rate,
                                                     n_mfcc=num_mfcc,
                                                     n_fft=n_fft,
                                                     hop_length=hop_length)

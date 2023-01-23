@@ -58,30 +58,30 @@ class FeatureExtractor:
         :param signal:
         :return:
         """
-        chroma_stft_mean = np.mean(librosa.feature.chroma_stft(signal))
-        chroma_stft_var = librosa.feature.chroma_stft(signal).var()
-        rms_mean = np.mean(librosa.feature.rms(signal))
-        rms_var = librosa.feature.rms(signal).var()
+        chroma_stft_mean = np.mean(librosa.feature.chroma_stft(y=signal))
+        chroma_stft_var = librosa.feature.chroma_stft(y=signal).var()
+        rms_mean = np.mean(librosa.feature.rms(y=signal))
+        rms_var = librosa.feature.rms(y=signal).var()
         spectral_centroid_mean = np.mean(
-            librosa.feature.spectral_centroid(signal))
-        spectral_centroid_var = librosa.feature.spectral_centroid(signal).var()
+            librosa.feature.spectral_centroid(y=signal))
+        spectral_centroid_var = librosa.feature.spectral_centroid(y=signal).var()
         spectral_bandwidth_mean = np.mean(
-            librosa.feature.spectral_bandwidth(signal))
+            librosa.feature.spectral_bandwidth(y=signal))
         spectral_bandwidth_var = librosa.feature.spectral_bandwidth(
-            signal).var()
+            y=signal).var()
         spectral_rolloff_mean = np.mean(
-            librosa.feature.spectral_rolloff(signal))
-        spectral_rolloff_var = librosa.feature.spectral_rolloff(signal).var()
+            librosa.feature.spectral_rolloff(y=signal))
+        spectral_rolloff_var = librosa.feature.spectral_rolloff(y=signal).var()
         zero_crossing_rate_mean = np.mean(
-            librosa.feature.zero_crossing_rate(signal))
+            librosa.feature.zero_crossing_rate(y=signal))
         zero_crossing_rate_var = librosa.feature.zero_crossing_rate(
             signal).var()
-        harmonic_mean = np.mean(librosa.effects.harmonic(signal))
-        harmonic_var = librosa.effects.harmonic(signal).var()
-        _, y_perceptr = librosa.effects.hpss(signal)
+        harmonic_mean = np.mean(librosa.effects.harmonic(y=signal))
+        harmonic_var = librosa.effects.harmonic(y=signal).var()
+        _, y_perceptr = librosa.effects.hpss(y=signal)
         perceptr_mean = np.mean(y_perceptr).real
         perceptr_var = y_perceptr.var()
-        tempo, _ = librosa.beat.beat_track(signal)
+        tempo, _ = librosa.beat.beat_track(y=signal)
 
         mfcc = self._extract_mfcc_feature(signal)
         mfcc_mean = [np.mean(m) for m in mfcc]
