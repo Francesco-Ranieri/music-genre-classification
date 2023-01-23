@@ -6,7 +6,6 @@ from feat_extractor import FeatureExtractor
 from pandas import DataFrame
 from src.api.entities.predict_model_request import PredictModelRequest
 from src.api.entities.model_allowed_enum import ModelAllowed
-import os
 import logging as log
 
 app = FastAPI()
@@ -23,10 +22,6 @@ async def predict_genre_music(predict_request: PredictModelRequest):
     :param predict_request:
     :return:
     """
-
-    log.info(os.getenv("MLFLOW_TRACKING_USERNAME"))
-    log.info(os.getenv("MLFLOW_TRACKING_PASSWORD"))
-    log.info(os.getenv("MLFLOW_TRACKING_URI"))
 
     req = predict_request.dict()
     dotenv.load_dotenv(override=True)

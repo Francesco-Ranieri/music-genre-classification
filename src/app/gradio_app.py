@@ -19,7 +19,7 @@ async def predict(audio_file):
             'mfcc_model': ModelAllowed.CNN.value}
     url = os.getenv('API_URL')
     print(url)
-    response = await client.post(url, json=body, timeout=30)
+    response = await client.post(url, json=body, timeout=120)
     return response.text
 
 
