@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - '**/src/feat_extractor/**'
+      - '**/src/feat_extractor-never/**'
 
 jobs:
   build-n-publish:
