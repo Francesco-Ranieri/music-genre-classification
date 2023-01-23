@@ -23,7 +23,6 @@ async def predict_genre_music(predict_request: PredictModelRequest):
     :return:
     """
     req = predict_request.dict()
-    dotenv.load_dotenv(override=True)
     feature_extractor = FeatureExtractor()
 
     gtzan_features, mfcc_features = feature_extractor.extract_feature(
