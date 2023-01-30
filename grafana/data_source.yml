@@ -1,15 +1,7 @@
 # config file version
 apiVersion: 1
 
-# list of datasources that should be deleted from the database
-deleteDatasources:
-  - name: Prometheus
-    orgId: 1
-
-# list of datasources to insert/update depending
-# what's available in the database
 datasources:
-  # <string, required> name of the datasource. Required
   - uid: prometheus
     orgId: 1
     name: Prometheus
@@ -17,10 +9,18 @@ datasources:
     typeName: Prometheus
     access: proxy
     url: http://prometheus:9090
-    password: ''
-    user: ''
-    database: ''
-    basicAuth: false
+    editable: false
+  - name: Tempo
+    type: tempo
+    access: proxy
+    url: http://tempo:8080
+    version: 1
+    editable: false
+    uid: tempo
+  - name: Loki
+    type: loki
+    access: proxy
+    url: http://loki:3100
+    version: 1
+    editable: false
     isDefault: true
-    readOnly: false
-    editable: true
