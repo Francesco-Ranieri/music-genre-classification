@@ -64,7 +64,8 @@ class FeatureExtractor:
         rms_var = librosa.feature.rms(y=signal).var()
         spectral_centroid_mean = np.mean(
             librosa.feature.spectral_centroid(y=signal))
-        spectral_centroid_var = librosa.feature.spectral_centroid(y=signal).var()
+        spectral_centroid_var = librosa.feature.spectral_centroid(
+            y=signal).var()
         spectral_bandwidth_mean = np.mean(
             librosa.feature.spectral_bandwidth(y=signal))
         spectral_bandwidth_var = librosa.feature.spectral_bandwidth(
