@@ -41,7 +41,9 @@ def save_data(inputs, labels, path_to_save):
     os.mkdir(path_to_save)
     x_train, x_test, y_train, y_test = train_test_split(
         inputs, labels, test_size=0.33, random_state=0)
-    x_train_split, x_validation, y_train_split, y_validation = train_test_split(x_train, y_train, test_size=0.33,
+    x_train_split, x_validation, y_train_split, y_validation = train_test_split(x_train,
+                                                                                y_train,
+                                                                                test_size=0.33,
                                                                                 random_state=0)
     data_to_save = {
         "x_train": x_train,
@@ -74,6 +76,7 @@ def save_mfcc_data(dataset_path: str,
                    hop_length: int = 512,
                    num_segments: int = 5,
                    path_to_save: PosixPath = PathUtils.DATA_PROCESSED_MFCC_PATH):
+
     """Extracts MFCCs from music dataset and saves them
         into a json file along witgh genre labels.
         :param path_to_save: path to save split dataset

@@ -1,4 +1,3 @@
-import dotenv
 import dvc.api
 import mlflow
 
@@ -14,10 +13,7 @@ class GtzanModel(BaseModel):
     Model for GTZAN Dataset
     """
 
-    model_name = ''
-
     def __init__(self):
-        dotenv.load_dotenv(override=True)
         data = get_processed_data()
 
         self.x_train = data["x_train_split"]
@@ -26,10 +22,14 @@ class GtzanModel(BaseModel):
         self.x_validation = data["x_validation"]
         self.y_validation = data["y_validation"]
 
+        self.x_test = data["x_test"]
+        self.y_test = data["y_test"]
+
         params = dvc.api.params_show()
         self.model_name = params['train']['GTZAN']['model-name']
 
     def train(self):
+
         """
         :return:
         """

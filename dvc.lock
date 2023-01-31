@@ -4,8 +4,8 @@ stages:
     cmd: python src/data/make_dataset.py
     deps:
     - path: src/data/make_dataset.py
-      md5: f74ff904b9cd97cf53052cbe03fb1a32
-      size: 5723
+      md5: e79a607f17fd5b9c8f9ded04e02f35c4
+      size: 5987
     outs:
     - path: data/processed/gtzan_data/
       md5: 7cd9fa402d6ab024776ff131a3bd2697.dir
@@ -89,20 +89,20 @@ stages:
       md5: 9b953b001bdc84167b952b4b86f0171d
       size: 8985
     - path: src/data/make_dataset.py
-      md5: f74ff904b9cd97cf53052cbe03fb1a32
-      size: 5723
+      md5: e79a607f17fd5b9c8f9ded04e02f35c4
+      size: 5987
     - path: src/models/classes/base_model.py
       md5: af1b303109e3bf5470090e68bff22f30
       size: 566
     - path: src/models/classes/mfcc_model.py
-      md5: 0cead32d31eff8cccab7781a66dee302
-      size: 1401
+      md5: 79e0159122266fff151dea2a1020851d
+      size: 1441
     - path: src/models/train_model.py
-      md5: afa8f8ae572e90020729a84c16f12c0b
-      size: 519
+      md5: e9e0ead49dbbfcca7521654dafe18b3a
+      size: 604
     params:
       params.yaml:
-        train.MFCC.model-name: CNN
+        test.MFCC.model-name: CNN
   train gtzan:
     cmd: python src/models/train_model.py --dataset gtzan
     deps:
@@ -119,17 +119,47 @@ stages:
       md5: 4d51b98004f5a431fab32834066fb9cb
       size: 8987
     - path: src/data/make_dataset.py
-      md5: f74ff904b9cd97cf53052cbe03fb1a32
-      size: 5723
+      md5: e79a607f17fd5b9c8f9ded04e02f35c4
+      size: 5987
     - path: src/models/classes/base_model.py
       md5: af1b303109e3bf5470090e68bff22f30
       size: 566
     - path: src/models/classes/gtzan_model.py
-      md5: 9c34c7a1daca4d112b8b83d3728866ad
-      size: 1732
+      md5: 61cc13d99388e94ff241d6eb31a12233
+      size: 1729
     - path: src/models/train_model.py
-      md5: afa8f8ae572e90020729a84c16f12c0b
-      size: 519
+      md5: e9e0ead49dbbfcca7521654dafe18b3a
+      size: 604
     params:
       params.yaml:
         train.GTZAN.model-name: Random Forest
+  test gtzan:
+    cmd: python src/models/predict_model.py --dataset gtzan
+    deps:
+    - path: data/processed/gtzan_data/x_test.pkl
+      md5: cb309931d704ba5e38fec202d46d99f0
+      size: 1557784
+    - path: data/processed/gtzan_data/y_test.pkl
+      md5: 8287c8f2b7d7243211b63e8013253d5d
+      size: 13339
+    - path: src/models/predict_model.py
+      md5: 7fb7e7587c967c1587fe8a9253a25a73
+      size: 1291
+    params:
+      params.yaml:
+        train.GTZAN.model-name: Random Forest
+  test mfcc:
+    cmd: python src/models/predict_model.py --dataset mfcc
+    deps:
+    - path: data/processed/mfcc_data/x_test.pkl
+      md5: 36f18b8cff07816aca10a7b4473836f7
+      size: 44562087
+    - path: data/processed/mfcc_data/y_test.pkl
+      md5: 25fb8c1ac1e68268729bedec5f9cad57
+      size: 13337
+    - path: src/models/predict_model.py
+      md5: 7fb7e7587c967c1587fe8a9253a25a73
+      size: 1291
+    params:
+      params.yaml:
+        test.MFCC.model-name: CNN

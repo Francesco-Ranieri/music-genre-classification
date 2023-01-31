@@ -16,6 +16,7 @@ class ModelAllowed(Enum):
 
 
 def get_model_from_name(model_name: str, dataset_type: Dataset):
+
     """
     :param dataset_type: MFCC or GTZAN
     :param model_name: name of the model
@@ -23,12 +24,15 @@ def get_model_from_name(model_name: str, dataset_type: Dataset):
     """
 
     random_state = 0
+
     if dataset_type == Dataset.GTZAN:
 
         if model_name == ModelAllowed.GAUSSIAN_NB.value:
             model = naive_bayes.GaussianNB()
         elif model_name == ModelAllowed.RANDOM_FOREST.value:
             model = ensemble.RandomForestClassifier(random_state=random_state)
+        else:
+            raise ValueError("The Model Name provided is not allowed")
 
     elif dataset_type == Dataset.MFCC:
 
@@ -63,7 +67,10 @@ def get_model_from_name(model_name: str, dataset_type: Dataset):
                           loss='sparse_categorical_crossentropy', metrics=['accuracy'])
             model.summary()
 
+        else:
+            raise ValueError("The Model Name provided is not allowed")
+
     else:
-        raise ValueError("Model name provided is not allowed")
+        raise ValueError("The Model Type provided is not allowed")
 
     return model

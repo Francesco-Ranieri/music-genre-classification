@@ -3,3 +3,8 @@ train:
     model-name: 'Random Forest'
   MFCC:
     model-name: 'CNN'
+test:
+  GTZAN:
+    model-name: 'Random Forest'
+  MFCC:
+    model-name: 'CNN'

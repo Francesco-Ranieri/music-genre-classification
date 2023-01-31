@@ -11,10 +11,12 @@ class Dataset(Enum):
 
 
 def get_processed_data(dataset: Enum = Dataset.GTZAN):
+
     """
     :param dataset: Enum Gtazan or MFCC
     :return:
     """
+
     path = PathUtils.DATA_PROCESSED_GTZAN_PATH
     if dataset == Dataset.MFCC:
         path = PathUtils.DATA_PROCESSED_MFCC_PATH

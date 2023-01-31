@@ -1,6 +1,5 @@
 import dvc.api
 import mlflow
-import dotenv
 
 from src.data.data_utils import get_processed_data, Dataset
 from src.models.classes.base_model import BaseModel
@@ -13,7 +12,6 @@ class MfccModel(BaseModel):
     """
 
     def __init__(self):
-        dotenv.load_dotenv(override=True)
         data = get_processed_data(Dataset.MFCC)
 
         self.x_train = data["x_train_split"]
@@ -22,16 +20,21 @@ class MfccModel(BaseModel):
         self.x_validation = data["x_validation"]
         self.y_validation = data["y_validation"]
 
+        self.x_test = data["x_test"]
+        self.y_test = data["y_test"]
+
+        params = dvc.api.params_show()
+        self.model_name = params['train']['MFCC']['model-name']
+
     def train(self):
+
         """
         :return:
         """
 
-        params = dvc.api.params_show()
-        model_name = params['train']['MFCC']['model-name']
-        model = get_model_from_name(model_name, Dataset.MFCC)
+        model = get_model_from_name(self.model_name, Dataset.MFCC)
 
-        with mlflow.start_run(run_name=model_name):
+        with mlflow.start_run(run_name=self.model_name):
             mlflow.autolog()
 
             model.fit(self.x_train,
@@ -42,7 +45,7 @@ class MfccModel(BaseModel):
 
             mlflow.tensorflow.log_model(model=model,
                                         artifact_path="sklearn-model",
-                                        registered_model_name=model_name)
+                                        registered_model_name=self.model_name)
 
-        def test():
-            pass
+    def test(self):
+        pass
