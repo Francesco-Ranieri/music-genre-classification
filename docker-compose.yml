@@ -36,14 +36,14 @@ services:
     ports:
       - 9090:9090
     volumes:
-      - ./prometheus:/etc/prometheus/
-      - ./prometheus/prometheus_data:/prometheus
+      - ./osservability/prometheus:/etc/prometheus/
+      - ./osservability/prometheus/prometheus_data:/prometheus
     command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
 
   tempo:
     image: grafana/tempo:1.2.0
     volumes:
-      - ./tempo/tempo.yml:/etc/tempo.yml
+      - ./osservability/tempo/tempo.yml:/etc/tempo.yml
     command: [ "-search.enabled=true", "-config.file=/etc/tempo.yml" ]
     ports:
       - 8080:8080
@@ -53,10 +53,10 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
-      - ./grafana/data_source.yml:/etc/grafana/provisioning/datasources/data_source.yml
-      - ./grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
-      - ./grafana/dashboards:/etc/grafana/dashboards
+      - ./osservability/grafana/grafana.ini:/etc/grafana/grafana.ini
+      - ./osservability/grafana/data_source.yml:/etc/grafana/provisioning/datasources/data_source.yml
+      - ./osservability/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
+      - ./osservability/grafana/dashboards:/etc/grafana/dashboards
     depends_on:
       - prometheus
       - loki
