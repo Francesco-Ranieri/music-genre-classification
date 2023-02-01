@@ -1,5 +1,8 @@
+import json
+
 import dvc.api
 import mlflow
+from src.pathUtils import PathUtils
 
 from src.data.data_utils import get_processed_data, Dataset
 from src.models.classes.base_model import BaseModel
@@ -27,7 +30,6 @@ class MfccModel(BaseModel):
         self.model_name = params['train']['MFCC']['model-name']
 
     def train(self):
-
         """
         :return:
         """
@@ -37,7 +39,7 @@ class MfccModel(BaseModel):
         with mlflow.start_run(run_name=self.model_name):
             mlflow.autolog()
 
-            model.fit(self.x_train,
+            history = model.fit(self.x_train,
                       self.y_train,
                       validation_data=(self.x_validation, self.y_validation),
                       batch_size=32,
@@ -46,6 +48,9 @@ class MfccModel(BaseModel):
             mlflow.tensorflow.log_model(model=model,
                                         artifact_path="sklearn-model",
                                         registered_model_name=self.model_name)
+
+            with open(PathUtils.MFCC_REPORTS_PATH, "w+") as report_file:
+                report_file.write(json.dumps(history.history, indent=4))
 
     def test(self):
         pass

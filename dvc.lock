@@ -95,14 +95,18 @@ stages:
       md5: af1b303109e3bf5470090e68bff22f30
       size: 566
     - path: src/models/classes/mfcc_model.py
-      md5: 79e0159122266fff151dea2a1020851d
-      size: 1441
+      md5: d8b96c43031ff5de001db0f44edc92e1
+      size: 1651
     - path: src/models/train_model.py
       md5: e9e0ead49dbbfcca7521654dafe18b3a
       size: 604
     params:
       params.yaml:
         test.MFCC.model-name: CNN
+    outs:
+    - path: reports/history/mfcc_history.json
+      md5: c85dd9799192a63cbbd675d582d19878
+      size: 5871
   train gtzan:
     cmd: python src/models/train_model.py --dataset gtzan
     deps:
@@ -125,14 +129,18 @@ stages:
       md5: af1b303109e3bf5470090e68bff22f30
       size: 566
     - path: src/models/classes/gtzan_model.py
-      md5: 61cc13d99388e94ff241d6eb31a12233
-      size: 1729
+      md5: 64a2b65efa2d159c2fae0e5212b73ee3
+      size: 1930
     - path: src/models/train_model.py
       md5: e9e0ead49dbbfcca7521654dafe18b3a
       size: 604
     params:
       params.yaml:
         train.GTZAN.model-name: Random Forest
+    outs:
+    - path: reports/history/gtzan_history.json
+      md5: fea1a7c22e5f631d44507ff7cf8d80f0
+      size: 185
   test gtzan:
     cmd: python src/models/predict_model.py --dataset gtzan
     deps:
@@ -142,6 +150,9 @@ stages:
     - path: data/processed/gtzan_data/y_test.pkl
       md5: 8287c8f2b7d7243211b63e8013253d5d
       size: 13339
+    - path: reports/history/gtzan_history.json
+      md5: fea1a7c22e5f631d44507ff7cf8d80f0
+      size: 185
     - path: src/models/predict_model.py
       md5: 7fb7e7587c967c1587fe8a9253a25a73
       size: 1291
@@ -157,6 +168,9 @@ stages:
     - path: data/processed/mfcc_data/y_test.pkl
       md5: 25fb8c1ac1e68268729bedec5f9cad57
       size: 13337
+    - path: reports/history/mfcc_history.json
+      md5: c85dd9799192a63cbbd675d582d19878
+      size: 5871
     - path: src/models/predict_model.py
       md5: 7fb7e7587c967c1587fe8a9253a25a73
       size: 1291

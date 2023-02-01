@@ -1,5 +1,8 @@
+import json
+
 import dvc.api
 import mlflow
+from src.pathUtils import PathUtils
 
 from src.data.data_utils import get_processed_data, Dataset
 from src.models.classes.base_model import BaseModel
@@ -38,7 +41,7 @@ class GtzanModel(BaseModel):
 
         with mlflow.start_run(run_name=self.model_name):
             mlflow.autolog()
-            _, trained_model = evaluate_classifier(model,
+            metrics, trained_model = evaluate_classifier(model,
                                                    0,
                                                    self.x_train.values,
                                                    self.y_train,
@@ -49,6 +52,9 @@ class GtzanModel(BaseModel):
             mlflow.sklearn.log_model(sk_model=trained_model,
                                      artifact_path="sklearn-model",
                                      registered_model_name=self.model_name)
+
+            with open(PathUtils.GTZAN_REPORTS_PATH, "w+") as report_file:
+                report_file.write(json.dumps(metrics, indent=4))
 
     def test(self):
         pass

@@ -19,6 +19,8 @@ stages:
       - src/models/classes/base_model.py
     params:
       - train.GTZAN.model-name
+    outs:
+      - reports/history/gtzan_history.json
   train mfcc:
     cmd: python src/models/train_model.py --dataset mfcc
     deps:
@@ -32,12 +34,15 @@ stages:
       - src/models/classes/base_model.py
     params:
       - test.MFCC.model-name
+    outs:
+      - reports/history/mfcc_history.json
   test gtzan:
     cmd: python src/models/predict_model.py --dataset gtzan
     deps:
       - src/models/predict_model.py
       - data/processed/gtzan_data/x_test.pkl
       - data/processed/gtzan_data/y_test.pkl
+      - reports/history/gtzan_history.json
     params:
       - train.GTZAN.model-name
   test mfcc:
@@ -46,5 +51,6 @@ stages:
       - src/models/predict_model.py
       - data/processed/mfcc_data/x_test.pkl
       - data/processed/mfcc_data/y_test.pkl
+      - reports/history/mfcc_history.json
     params:
       - test.MFCC.model-name
