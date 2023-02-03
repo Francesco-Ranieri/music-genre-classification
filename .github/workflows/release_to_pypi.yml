@@ -1,4 +1,4 @@
-name: Deploy to PyPI - feature extractor
+name: PyPI - release Feature Extractor 🌪
 
 on:
   release:

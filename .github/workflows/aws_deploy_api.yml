@@ -1,4 +1,4 @@
-name: Deploy to Amazon ECS the API module
+name: AWS - deploy API 🕸
 
 on:
   push:
