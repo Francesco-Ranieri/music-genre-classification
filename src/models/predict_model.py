@@ -10,7 +10,6 @@ from src.models.evaluation import evaluate_classifier
 
 
 def retrieve_model_uri_dvc(_model_type: Dataset):
-
     """
     :param model_type: model type 'GTZAN' or 'MFCC'
     :return: model_uri for dvc

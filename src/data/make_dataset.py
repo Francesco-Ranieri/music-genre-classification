@@ -76,7 +76,6 @@ def save_mfcc_data(dataset_path: str,
                    hop_length: int = 512,
                    num_segments: int = 5,
                    path_to_save: PosixPath = PathUtils.DATA_PROCESSED_MFCC_PATH):
-
     """Extracts MFCCs from music dataset and saves them
         into a json file along witgh genre labels.
         :param path_to_save: path to save split dataset

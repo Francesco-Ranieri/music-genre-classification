@@ -8,7 +8,8 @@ def load_test_dataset():
     X = iris.data[:, 2:]
     y = iris.target
 
-    x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1, stratify=y)
+    x_train, x_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.3, random_state=1, stratify=y)
 
     return x_train, x_test, y_train, y_test
 

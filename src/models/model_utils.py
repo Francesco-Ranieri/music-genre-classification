@@ -16,7 +16,6 @@ class ModelAllowed(Enum):
 
 
 def get_model_from_name(model_name: str, dataset_type: Dataset):
-
     """
     :param dataset_type: MFCC or GTZAN
     :param model_name: name of the model

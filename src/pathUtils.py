@@ -3,7 +3,6 @@ import os
 
 
 def is_dir_empty(path: Path) -> bool:
-
     """
     :param path: dir to check
     """
@@ -34,13 +33,15 @@ class PathUtils:
     DATA_PROCESSED_PATH = DATA_PATH.joinpath("processed")
     DATA_PROCESSED_GTZAN_PATH = DATA_PROCESSED_PATH.joinpath("gtzan_data")
     DATA_PROCESSED_MFCC_PATH = DATA_PROCESSED_PATH.joinpath("mfcc_data")
-    MFCC_DATASET_PROCESSED_PATH = DATA_PROCESSED_PATH.joinpath(Path("mfcc_dataset.json"))
+    MFCC_DATASET_PROCESSED_PATH = DATA_PROCESSED_PATH.joinpath(
+        Path("mfcc_dataset.json"))
 
     # SRC/DATA/RAW FOLDER AND FILES
     DATA_RAW_PATH = DATA_PATH.joinpath("raw")
     DATA_RAW_DATASET = DATA_RAW_PATH.joinpath("dataset")
     DATA_RAW_DATASET_GENRES_ZIP = DATA_RAW_DATASET.joinpath("genres.zip")
-    GTZAN_DATASET_RAW_PATH = DATA_RAW_DATASET.joinpath(Path("features_3_sec.csv"))
+    GTZAN_DATASET_RAW_PATH = DATA_RAW_DATASET.joinpath(
+        Path("features_3_sec.csv"))
     MFCC_DATASET_RAW_PATH = DATA_RAW_DATASET.joinpath(Path("genres_original"))
 
     # DRIVE URL

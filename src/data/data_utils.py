@@ -11,7 +11,6 @@ class Dataset(Enum):
 
 
 def get_processed_data(dataset: Enum = Dataset.GTZAN):
-
     """
     :param dataset: Enum Gtazan or MFCC
     :return:

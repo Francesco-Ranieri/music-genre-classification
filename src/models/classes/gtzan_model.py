@@ -32,7 +32,6 @@ class GtzanModel(BaseModel):
         self.model_name = params['train']['GTZAN']['model-name']
 
     def train(self):
-
         """
         :return:
         """
@@ -42,12 +41,12 @@ class GtzanModel(BaseModel):
         with mlflow.start_run(run_name=self.model_name):
             mlflow.autolog()
             metrics, trained_model = evaluate_classifier(model,
-                                                   0,
-                                                   self.x_train.values,
-                                                   self.y_train,
-                                                   self.x_validation.values,
-                                                   self.y_validation,
-                                                   fit=True)
+                                                         0,
+                                                         self.x_train.values,
+                                                         self.y_train,
+                                                         self.x_validation.values,
+                                                         self.y_validation,
+                                                         fit=True)
 
             mlflow.sklearn.log_model(sk_model=trained_model,
                                      artifact_path="sklearn-model",

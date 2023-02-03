@@ -40,10 +40,11 @@ class MfccModel(BaseModel):
             mlflow.autolog()
 
             history = model.fit(self.x_train,
-                      self.y_train,
-                      validation_data=(self.x_validation, self.y_validation),
-                      batch_size=32,
-                      epochs=50)
+                                self.y_train,
+                                validation_data=(
+                                    self.x_validation, self.y_validation),
+                                batch_size=32,
+                                epochs=50)
 
             mlflow.tensorflow.log_model(model=model,
                                         artifact_path="sklearn-model",
