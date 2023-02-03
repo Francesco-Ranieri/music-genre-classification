@@ -1,5 +1,4 @@
 from src.data.data_utils import get_processed_data
-
 from tests.testUtils import is_dataset_loaded
 
 

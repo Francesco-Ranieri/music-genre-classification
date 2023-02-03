@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - master
     paths:
       - '**/src/api/**'
       - '**Dockerfile-be**'
