@@ -3,6 +3,7 @@ import os
 
 
 def is_dir_empty(path: Path) -> bool:
+
     """
     :param path: dir to check
     """
@@ -45,3 +46,6 @@ class PathUtils:
     # DRIVE URL
     DATASET_URL = "https://drive.google.com/uc?id=1hCOpQpQbDEhswsuSchSpVDmW6w-VfJ8X&export=" \
                   "download&confirm=t&uuid=1d2e5d2c-ecbb-4bbd-be85-e17bd545e4af"
+
+    # TEST SONG
+    TEST_SONG = ROOT_PATH.joinpath("tests/resources/hip_hop_test.wav")

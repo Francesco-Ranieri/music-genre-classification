@@ -17,7 +17,7 @@ async def predict(audio_file):
     body = {'audio_array': audio_array.tolist(),
             'gtzan_model': ModelAllowed.RANDOM_FOREST.value,
             'mfcc_model': ModelAllowed.CNN.value}
-    url = os.getenv('API_URL', 'localhost:8000')
+    url = os.getenv('API_URL', 'http://localhost:8000/predict_music')
     response = await client.post(url, json=body, timeout=120)
     return response.text
 

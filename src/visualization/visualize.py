@@ -2,6 +2,7 @@ import librosa
 import librosa.display
 import matplotlib.pyplot as plt
 import numpy as np
+from src.pathUtils import PathUtils
 
 
 def plot_melspectrogram(song_name: str):

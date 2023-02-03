@@ -29,10 +29,12 @@ async def read_main():
 
 @app.post("/predict_music")
 async def predict_genre_music(predict_request: PredictModelRequest):
+
     """
     :param predict_request:
     :return:
     """
+
     return predict_music(predict_request)
 
 
