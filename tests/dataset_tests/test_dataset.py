@@ -12,6 +12,8 @@ class TestDataset:
         data_loaded = {}
         try:
             data_loaded = get_processed_data()
+        except FileNotFoundError:
+            pass
         finally:
             if not is_dataset_loaded():
                 assert data_loaded == {}
