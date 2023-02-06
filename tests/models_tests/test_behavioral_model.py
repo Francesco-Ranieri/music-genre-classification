@@ -4,7 +4,7 @@ import numpy as np
 from feat_extractor import FeatureExtractor
 
 from src.pathUtils import PathUtils
-from tests.test_utils.test_utils import load_test_song
+from tests.test_utils.utils import load_test_song
 
 
 def get_prediction(odds):

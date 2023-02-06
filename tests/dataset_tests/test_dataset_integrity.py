@@ -2,7 +2,7 @@ import pytest
 from deepchecks.tabular import Dataset
 from deepchecks.tabular.suites import full_suite, data_integrity
 
-from tests.test_utils.test_utils import load_real_gtzan_dataset, load_real_mfcc_dataset
+from tests.test_utils.utils import load_real_gtzan_dataset, load_real_mfcc_dataset
 
 
 class TestDataIntegrity:

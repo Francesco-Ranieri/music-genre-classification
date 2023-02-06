@@ -1,5 +1,5 @@
 from src.feat_extractor import FeatureExtractor
-from tests.test_utils.test_utils import load_test_song
+from tests.test_utils.utils import load_test_song
 
 
 class TestFeatureExtractor:
