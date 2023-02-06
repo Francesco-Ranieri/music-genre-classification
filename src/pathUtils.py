@@ -49,4 +49,8 @@ class PathUtils:
                   "download&confirm=t&uuid=1d2e5d2c-ecbb-4bbd-be85-e17bd545e4af"
 
     # TEST SONG
-    TEST_SONG = ROOT_PATH.joinpath("tests/resources/hip_hop_test.wav")
+    TEST_RESOURCES = ROOT_PATH.joinpath("tests/resources")
+    TEST_SONG = TEST_RESOURCES.joinpath("hip_hop_test.wav")
+    TEST_SONG_AUGMENTED = TEST_RESOURCES.joinpath("augmented")
+    TEST_SONG_AUGMENTED_NOISE = TEST_SONG_AUGMENTED.joinpath("noise")
+    TEST_SONG_AUGMENTED_SHIFT_TIME = TEST_SONG_AUGMENTED.joinpath("shift_time")
