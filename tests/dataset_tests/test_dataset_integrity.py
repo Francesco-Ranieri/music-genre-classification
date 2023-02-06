@@ -1,10 +1,8 @@
-import json
-
 import pytest
 from deepchecks.tabular import Dataset
-from deepchecks.tabular.suites import data_integrity
+from deepchecks.tabular.suites import full_suite, data_integrity
 
-from tests.testUtils import load_real_dataset
+from tests.test_utils.test_utils import load_real_gtzan_dataset, load_real_mfcc_dataset
 
 
 class TestDataIntegrity:
@@ -13,17 +11,24 @@ class TestDataIntegrity:
     def setup(self):
         pass
 
-    def test_dataset_integrity(self):
-        dataset, _, _ = load_real_dataset()
-        feature_cols = list(dataset.columns.values).remove("label")
+    def test_dataset_gtzan_integrity(self):
 
-        dataset_test = Dataset(dataset,
-                               features=feature_cols,
-                               label='label')
-        integ_suite = data_integrity()
-        suite_result = integ_suite.run(dataset_test)
-            with open('data.json', 'w+') as f:
-            json.dump(suite_result.to_json(), f)
+        dataset = load_real_gtzan_dataset()
 
+        if dataset:
+            suite = data_integrity()
+            suite_result = suite.run(dataset)
+            suite_result.save_as_html("reports/tests/deep_gtzan_checks.html")
+            with open('reports/tests/deep_checks.json', 'w+') as f:
+                f.write(suite_result.to_json())
 
-TestDataIntegrity().test_dataset_integrity()
+    def test_dataset_mfcc_integrity(self):
+
+        dataset = load_real_mfcc_dataset()
+
+        if dataset:
+            suite = data_integrity()
+            suite_result = suite.run(dataset)
+            suite_result.save_as_html("reports/tests/deep_mfcc_checks.html")
+            with open('reports/tests/deep_checks.json', 'w+') as f:
+                f.write(suite_result.to_json())

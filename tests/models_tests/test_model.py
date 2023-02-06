@@ -5,7 +5,7 @@ from src.data.data_utils import Dataset
 from src.models.model_utils import get_model_from_name
 from sklearn import ensemble
 
-from tests.testUtils import load_test_dataset
+from tests.test_utils.mock_dataset import load_test_dataset
 
 
 class TestModels:
