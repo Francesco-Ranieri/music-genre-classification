@@ -4,8 +4,8 @@ stages:
     cmd: python src/data/make_dataset.py
     deps:
     - path: src/data/make_dataset.py
-      md5: e79a607f17fd5b9c8f9ded04e02f35c4
-      size: 5987
+      md5: bf7f0e23c017ee6806ff8cdeeb8409e5
+      size: 5985
     outs:
     - path: data/processed/gtzan_data/
       md5: 7cd9fa402d6ab024776ff131a3bd2697.dir
@@ -89,14 +89,14 @@ stages:
       md5: 9b953b001bdc84167b952b4b86f0171d
       size: 8985
     - path: src/data/make_dataset.py
-      md5: e79a607f17fd5b9c8f9ded04e02f35c4
-      size: 5987
+      md5: bf7f0e23c017ee6806ff8cdeeb8409e5
+      size: 5985
     - path: src/models/classes/base_model.py
       md5: af1b303109e3bf5470090e68bff22f30
       size: 566
     - path: src/models/classes/mfcc_model.py
-      md5: d8b96c43031ff5de001db0f44edc92e1
-      size: 1651
+      md5: 3932998faf3002e1c48ae7e1babcb4d1
+      size: 1729
     - path: src/models/train_model.py
       md5: e9e0ead49dbbfcca7521654dafe18b3a
       size: 604
@@ -105,8 +105,8 @@ stages:
         test.MFCC.model-name: CNN
     outs:
     - path: reports/history/mfcc_history.json
-      md5: c85dd9799192a63cbbd675d582d19878
-      size: 5871
+      md5: f84d3b30c837af2c84a6f3792d606372
+      size: 5875
   train gtzan:
     cmd: python src/models/train_model.py --dataset gtzan
     deps:
@@ -123,14 +123,14 @@ stages:
       md5: 4d51b98004f5a431fab32834066fb9cb
       size: 8987
     - path: src/data/make_dataset.py
-      md5: e79a607f17fd5b9c8f9ded04e02f35c4
-      size: 5987
+      md5: bf7f0e23c017ee6806ff8cdeeb8409e5
+      size: 5985
     - path: src/models/classes/base_model.py
       md5: af1b303109e3bf5470090e68bff22f30
       size: 566
     - path: src/models/classes/gtzan_model.py
-      md5: 64a2b65efa2d159c2fae0e5212b73ee3
-      size: 1930
+      md5: 2b92ab3165d0c62e38f3588bd1280b66
+      size: 1964
     - path: src/models/train_model.py
       md5: e9e0ead49dbbfcca7521654dafe18b3a
       size: 604
@@ -154,8 +154,8 @@ stages:
       md5: fea1a7c22e5f631d44507ff7cf8d80f0
       size: 185
     - path: src/models/predict_model.py
-      md5: 7fb7e7587c967c1587fe8a9253a25a73
-      size: 1291
+      md5: e89f4841b56bec218f57b2249baf261e
+      size: 1289
     params:
       params.yaml:
         train.GTZAN.model-name: Random Forest
@@ -169,11 +169,11 @@ stages:
       md5: 25fb8c1ac1e68268729bedec5f9cad57
       size: 13337
     - path: reports/history/mfcc_history.json
-      md5: c85dd9799192a63cbbd675d582d19878
-      size: 5871
+      md5: f84d3b30c837af2c84a6f3792d606372
+      size: 5875
     - path: src/models/predict_model.py
-      md5: 7fb7e7587c967c1587fe8a9253a25a73
-      size: 1291
+      md5: e89f4841b56bec218f57b2249baf261e
+      size: 1289
     params:
       params.yaml:
         test.MFCC.model-name: CNN
