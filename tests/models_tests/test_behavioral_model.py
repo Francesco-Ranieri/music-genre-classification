@@ -45,7 +45,8 @@ class TestBehavioralModel:
         features = self.featureExtractor.extract_feature(signal)
         gtzan_predictions = self._predict_gtzan_feature(features[0])
         mfcc_predictions = self._predict_mfcc_feature(features[1])
-        mean_prediction = np.mean((gtzan_predictions, mfcc_predictions), axis=0)
+        mean_prediction = np.mean(
+            (gtzan_predictions, mfcc_predictions), axis=0)
         return get_prediction(mean_prediction)
 
     def test_correct_behavior(self):
@@ -72,25 +73,31 @@ class TestBehavioralModel:
         label_prediction = self._test_behavior(path)
 
     def test_shift_time_2_right(self):
-        path = PathUtils.TEST_SONG_AUGMENTED_SHIFT_TIME.joinpath("shift_2_right.wav")
+        path = PathUtils.TEST_SONG_AUGMENTED_SHIFT_TIME.joinpath(
+            "shift_2_right.wav")
         label_prediction = self._test_behavior(path)
 
     def test_shift_time_3_both(self):
-        path = PathUtils.TEST_SONG_AUGMENTED_SHIFT_TIME.joinpath("shift_3_both.wav")
+        path = PathUtils.TEST_SONG_AUGMENTED_SHIFT_TIME.joinpath(
+            "shift_3_both.wav")
         label_prediction = self._test_behavior(path)
 
     def test_shift_time_6_left(self):
-        path = PathUtils.TEST_SONG_AUGMENTED_SHIFT_TIME.joinpath("shift_6_left.wav")
+        path = PathUtils.TEST_SONG_AUGMENTED_SHIFT_TIME.joinpath(
+            "shift_6_left.wav")
         label_prediction = self._test_behavior(path)
 
     def test_shift_time_10_both(self):
-        path = PathUtils.TEST_SONG_AUGMENTED_SHIFT_TIME.joinpath("shift_10_both.wav")
+        path = PathUtils.TEST_SONG_AUGMENTED_SHIFT_TIME.joinpath(
+            "shift_10_both.wav")
         label_prediction = self._test_behavior(path)
 
     def test_shift_time_0_1_both(self):
-        path = PathUtils.TEST_SONG_AUGMENTED_SHIFT_TIME.joinpath("shift_0.1_both.wav")
+        path = PathUtils.TEST_SONG_AUGMENTED_SHIFT_TIME.joinpath(
+            "shift_0.1_both.wav")
         label_prediction = self._test_behavior(path)
 
     def test_shift_time_0_2_left(self):
-        path = PathUtils.TEST_SONG_AUGMENTED_SHIFT_TIME.joinpath("shift_0.2_left.wav")
+        path = PathUtils.TEST_SONG_AUGMENTED_SHIFT_TIME.joinpath(
+            "shift_0.2_left.wav")
         label_prediction = self._test_behavior(path)
