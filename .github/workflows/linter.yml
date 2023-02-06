@@ -63,6 +63,12 @@ jobs:
 
   pytest:
     runs-on: ubuntu-latest
+
+    env:
+      MLFLOW_TRACKING_URI: ${{MLFLOW_TRACKING_URI}}
+      MLFLOW_TRACKING_USERNAME: ${{MLFLOW_TRACKING_USERNAME}}
+      MLFLOW_TRACKING_PASSWORD: ${{MLFLOW_TRACKING_PASSWORD}}
+
     strategy:
       matrix:
         python-version: ["3.8"]
