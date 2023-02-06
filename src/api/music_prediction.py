@@ -6,7 +6,7 @@ import numpy as np
 from feat_extractor import FeatureExtractor
 from pandas import DataFrame
 
-from src.api.entities.model_allowed_enum import ModelAllowed
+from src.api.entities.model_allowed_enum import ModelAllowedGTZAN, ModelAllowedMFCC
 from src.api.entities.predict_model_request import PredictModelRequest
 
 label = ['blues',
@@ -40,7 +40,7 @@ def predict_music(predict_request: PredictModelRequest):
     return get_human_readable_label(label_prediction)
 
 
-def predict_gtzan_feature(input_data: DataFrame, model_name: ModelAllowed):
+def predict_gtzan_feature(input_data: DataFrame, model_name: ModelAllowedGTZAN):
     """
     :param model_name:
     :param input_data:
@@ -60,7 +60,7 @@ def predict_gtzan_feature(input_data: DataFrame, model_name: ModelAllowed):
     return segment_odd / 10
 
 
-def predict_mfcc_feature(input_data, model_name: ModelAllowed):
+def predict_mfcc_feature(input_data, model_name: ModelAllowedMFCC):
     """
     :param input_data:
     :param model_name:

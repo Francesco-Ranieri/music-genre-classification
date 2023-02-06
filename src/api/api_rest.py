@@ -27,7 +27,7 @@ async def read_main():
     return {"Server": "is working !"}
 
 
-@app.post("/predict_music")
+@app.post("/predict-music")
 async def predict_genre_music(predict_request: PredictModelRequest):
 
     """
