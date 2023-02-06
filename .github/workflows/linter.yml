@@ -85,10 +85,9 @@ jobs:
           pip install -r requirements.txt
           pip install pytest
           pip install .
+      - name: Dowload Dataset
+        run: |
+          dvc pull
       - name: Run pytest
         run: |
           pytest tests
-
-
-
-
