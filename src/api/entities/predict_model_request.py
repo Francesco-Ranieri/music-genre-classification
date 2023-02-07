@@ -7,11 +7,11 @@ from src.api.entities.model_allowed_enum import ModelAllowedGTZAN, ModelAllowedM
 class PredictModelRequest(BaseModel):
     """
         API REQUEST: \n
-            - audio_array: numpy.ndarray = music array \n
-            - gtzan_model: ModelAllowedGTZAN = model used for predict gtzan feature \n
-            - mfcc_model: ModelAllowedMFCC = model used for predict mfcc feature
+        - **audios**: numpy.ndarray = music array \n
+        - **gtzan_model**: ModelAllowedGTZAN = model used for predict gtzan feature \n
+        - **mfcc_model**: ModelAllowedMFCC = model used for predict mfcc feature
     """
 
-    audio_array: List = []
+    audios: List = []
     gtzan_model: ModelAllowedGTZAN = ModelAllowedGTZAN.RANDOM_FOREST
     mfcc_model: ModelAllowedMFCC = ModelAllowedMFCC.CNN

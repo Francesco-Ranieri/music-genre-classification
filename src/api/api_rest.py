@@ -24,15 +24,30 @@ logging.getLogger("uvicorn.access").addFilter(EndpointFilter())
 
 @app.get("/")
 async def read_main():
+
+    """
+    Server test path
+    """
+
     return {"Server": "is working !"}
 
 
-@app.post("/predict-music")
+@app.post("/predict/music")
 async def predict_genre_music(predict_request: PredictModelRequest):
 
     """
-    :param predict_request:
-    :return:
+    Api rest used for predict music genre.
+    Music genres are:
+    - **blues**
+    - **classical**
+    - **country**
+    - **disco**
+    - **hiphop**
+    - **jazz**
+    - **metal**
+    - **pop**
+    - **reggae**
+    - **rock**
     """
 
     return predict_music(predict_request)
