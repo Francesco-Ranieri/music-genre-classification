@@ -26,7 +26,7 @@ def predict_music(predict_request: PredictModelRequest):
     dotenv.load_dotenv(override=True)
     feature_extractor = FeatureExtractor()
 
-    gtzan_features, mfcc_features = feature_extractor.extr+act_feature(
+    gtzan_features, mfcc_features = feature_extractor.extract_feature(
         audio_array=req["audios"])
     gtzan_predictions = predict_gtzan_feature(
         input_data=gtzan_features, model_name=req["gtzan_model"])
