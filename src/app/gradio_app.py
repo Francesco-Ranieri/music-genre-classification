@@ -14,7 +14,7 @@ class ModelAllowed(Enum):
 async def predict(audio_file):
     client = httpx.AsyncClient()
     audio_array = audio_file[1]
-    body = {'audio_array': audio_array.tolist(),
+    body = {'audios': audio_array.tolist(),
             'gtzan_model': ModelAllowed.RANDOM_FOREST.value,
             'mfcc_model': ModelAllowed.CNN.value}
     url = os.getenv('API_URL', 'http://localhost:8000/predict/music')
