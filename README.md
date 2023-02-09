@@ -1,5 +1,29 @@
+MUSIC GENRE CLASSIFICATION
+==============================
+
+## Project Idea
+> Music Classification aims to understand the music semantics over various different features.
+In this project we have proposed a novel ensemble model for the Music Genre Classification task which try to 
+classify music based on its genre.
+The final model is created by combining the predictions from multiple models: Random forest algorithm and Convolutional
+Neural Network. It scores on test set an accuracy of 87%.
+
+### Project Structure
+This project used the [Cookiecutter🍪 template](https://cookiecutter.readthedocs.io/en/stable/README.html) and is composed
+of 3 components:
+*  WEB APP Module:
+    *  [Frontend](tinyurl.com/y88w7fjj): GUI application  
+    *  [Backend](tinyurl.com/yv53fysb): Rest api
+*  Observability Module:
+    * Grafana dashboard created with:
+        * Prometheus
+        * Tempo
+        * Loki
+*  PyPI package for song features extraction:
+    * [feat_extractor](https://pypi.org/project/feat-extractor/)
 <details>
-<summary>Code example</summary>
+<summary>Project detailed tree structure 🔍 <br>
+</summary>
 
 ```
 📦ml-boilerplate
