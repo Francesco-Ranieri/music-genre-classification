@@ -162,11 +162,13 @@ of 3 components:
  
  ### Model card
  The Music Genre classifier is an ensemble model which combines:
-    - [Random Forest](docs/model_cards/model_card_RF.md)
-    - Convolutional Neural Network
+* [Random Forest](docs/model_cards/model_card_RF.md)
+* [Convolutional Neural Network](docs/model_cards/model_card_CNN.md)
  
  
  ### Dataset card
- 
+The models described above use the following datasets respectively:
+* [GTZAN Dataset](docs/dataset_cards/gtzan_dataset_card.md)
+* [MFCC Dataset](docs/dataset_cards/mfcc_dataset_card.md)
  
  
