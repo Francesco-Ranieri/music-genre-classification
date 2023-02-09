@@ -1,7 +1,7 @@
 MUSIC GENRE CLASSIFICATION
 ==============================
 
-## Project Idea
+## Intro - Project Idea
 > Music Classification aims to understand the music semantics over various different features.
 In this project we have proposed a novel ensemble model for the Music Genre Classification task which try to 
 classify music based on its genre.
@@ -157,5 +157,16 @@ of 3 components:
  ```
 
  </details>
+ 
+ ## Inception
+ 
+ ### Model card
+ The Music Genre classifier is an ensemble model which combines:
+    - [Random Forest](docs/model_cards/model_card_RF.md)
+    - Convolutional Neural Network
+ 
+ 
+ ### Dataset card
+ 
  
  
