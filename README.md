@@ -190,6 +190,24 @@ This choice provides not only a logical separation but also allowed to divide th
 * one for the app
 * one for the pypi package
 
+### Docker and Compose
+Docker is a software platform that allows you to build, test, and deploy applications quickly.
+It is possibile to run the entire project:
+* APP
+* API
+* GRAFANA
+    * PROMETHEUS
+    * LOKI
+    * TEMPO
+just by run the command
+ ```
+    docker compose up
+```
+or to build them using the parameter  
+```
+    docker compose up --build 
+```
+
 ### Pipelines
 DVC allows not only to version data, but also to create fully reproducible pipelines. The pipelines are defined using the CLI or by manually editing the dvc.yaml file.
 <br>
@@ -277,7 +295,7 @@ Pytest is a Python testing framework. This project integrates pytest for unit te
 
 #### Deep Checks
 Deepchecks Open Source is a python library for data scientists and ML engineers. The package includes extensive test suites for machine learning models and data, built in a way that’s flexible, extendable and editable.
-<img src="./docs/assets/deep_checks.png">
+<img src="./docs/assets/deep_checks.png"> <br>
 And the genererated report are: <br>
 * [GTZAN Dataset Report](./reports/tests/deep_gtzan_checks.html)
 * [MFCC Dataset Report](./reports/tests/deep_mfcc_checks.html)
@@ -326,6 +344,25 @@ You can drop audio and click predict.
 
 ## Monitoring
 Application monitoring is the process of monitoring an application's performance, availability, and end-user experience to ensure the application is functioning properly.
+
+## Grafana 
+Grafana allows you to query, visualize, alert on and understand your metrics no matter where they are stored.
+In this project the Grafana dashboards are build on these three components:
+* **Traces** with Tempo and OpenTelemetry Python SDK
+* **Metrics** with Prometheus and Prometheus Python Client
+* **Logs** with Loki
+
+ <img src="./docs/assets/grafana.png"><br>
+ 
+ The dashboard implemented is:
+ 
+ <img src="./docs/assets/grafana_dashboard.png"><br>
+ 
+ It consists of 4 panels:
+ * pie chart for genre predicted
+ * number of prediction graph
+ * highest ram capacity used indicator
+ * log section
 
 ### Better Uptime
 Application monitoring is important not only it is necessary to track an application's performance but also identify when and where along the journey an abnormality was found and why it happened. 
