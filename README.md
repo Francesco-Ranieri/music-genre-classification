@@ -22,7 +22,7 @@ of 3 components:
 *  PyPI package for song features extraction:
     * [feat_extractor](https://pypi.org/project/feat-extractor/)
 <details>
-<summary>Project detailed tree structure 🔍 <br>
+<summary>Project detailed tree structure 🔍 [CLICK TO EXPAND] <br>
 </summary>
 
 ```
