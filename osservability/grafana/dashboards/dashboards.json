@@ -212,7 +212,7 @@
             "uid": "prometheus"
           },
           "editorMode": "builder",
-          "expr": "starlette_requests_processing_time_seconds_count{method=\"POST\", path_template=\"/predict_music\"}",
+          "expr": "starlette_requests_processing_time_seconds_count{method=\"POST\", path_template=\"/predict/music\"}",
           "key": "Q-0f961b09-4e2b-4ec2-8e05-87551ca41240-0",
           "legendFormat": "__auto",
           "range": true,
@@ -415,13 +415,13 @@
     "list": []
   },
   "time": {
-    "from": "now-2d",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "GTZAN_Music_Genre",
   "uid": "QF0RIm04z",
-  "version": 1,
+  "version": 2,
   "weekStart": ""
 }
