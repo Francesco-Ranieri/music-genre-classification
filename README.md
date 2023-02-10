@@ -235,7 +235,16 @@ in a safe place, the following github secrets has been defined:
 ## Github workflow
 
 ### AWS - deploy API/APP 🕸
-Trigger: src/api or src/app folder modified
-Action: 
+* Trigger: src/api or src/app folder modified
+* Action: aws deploy
 <img src="./docs/assets/workflows/aws_deploy_.png">
 
+### AWS - Linter 🐍
+* Trigger: every commit
+* Action: code checks
+<img src="./docs/assets/workflows/linter.png">
+
+### PyPI - release Feature Extractor 🌪
+* Trigger: new tag created
+* Action: pypi release
+<img src="./docs/assets/workflows/pypi.png">
