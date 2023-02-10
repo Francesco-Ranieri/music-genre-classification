@@ -171,4 +171,71 @@ The models described above use the following datasets respectively:
 * [GTZAN Dataset](docs/dataset_cards/gtzan_dataset_card.md)
 * [MFCC Dataset](docs/dataset_cards/mfcc_dataset_card.md)
  
- 
+## Reproducibility
+
+### Dagshub
+Dagshub is a Github's inspired platform, specifically created for data science projects, that allows to host, version, and manage code, data, models, experiments, Dagshub is free and open-source
+
+### DVC
+DVC is a software, based on Git, that allows to version data and track data science experiments.
+In this project, the contents of the data folder is stored and tracked using DVC. The remote storage used is the one offered by Dagshub.
+
+### PyPi
+The Python Package Index (PyPI) is a repository of software for the Python programming language. <br>
+PyPI helps you find and install software developed and shared by the Python community.
+In order to split the models module and the GUI app, the share logic, for features extraction, is exported as pypy package.
+This choice provides not only a logical separation but also allowed to divide this project into 3 sub-project:
+* one for the model module
+* one for the app
+* one for the pypi package
+
+### Pipelines
+DVC allows not only to version data, but also to create fully reproducible pipelines. The pipelines are defined using the CLI or by manually editing the dvc.yaml file.
+<br>
+A pipelines of 5 steps has been defined:
+* **prepare**: dowload dataset if not exitst from a google drive source, load GTZAN dataset and create MFCC dataset.
+* **train gtzan**: train model on the train data of the GTZAN dataset 
+* **train mfcc**: train model on train data of the MFCC dataset
+* **test gtzan**: test model on the test data of the GTZAN dataset
+* **test mfcc**: test model on the test data of the MFCC dataset
+<br>
+<img src="./docs/assets/pipeline.png">
+
+The pipeline can be configured using the params.yaml file. This file contains configurations for the type of the model.
+By setting the correct params, it is possible to choose which model should be trained or tested.
+
+## MLFlow
+MLFLow is a software that allows to track Machine Learning experiments and models. It stores the metrics of the experiments, allowing the developer to compare different models and parameters. Also, allows to store the models and retrieve them when needed.
+In this project MLflow tracks every experiment, params and metrics which are available for consultation in a convenient GUI.
+<br>
+<img src="./docs/assets/mlflow.png">
+
+## ENVIROMENT
+### local .env
+The .env file is not shared for security reason. 
+But the env of this project contain the following variables:
+
+* MLFLOW_TRACKING_URI
+* MLFLOW_TRACKING_USERNAME
+* MLFLOW_TRACKING_PASSWORD
+* API_URL
+
+### Github variables and secrets
+In the github actions the env variables described above are needed to run the different pipeline. In order to store them 
+in a safe place, the following github secrets has been defined:
+<br>
+* AWS_ACCESS_KEY_ID
+* AWS_SECRET_ACCESS_KEY
+* MLFLOW_TRACKING_PASSWORD
+* MLFLOW_TRACKING_URI
+* MLFLOW_TRACKING_USERNAME
+* PYPI_API_TOKEN
+* PYPI_USERNAME
+
+## Github workflow
+
+### AWS - deploy API/APP 🕸
+Trigger: src/api or src/app folder modified
+Action: 
+<img src="./docs/assets/workflows/aws_deploy_.png">
+
