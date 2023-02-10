@@ -322,3 +322,19 @@ gradio generates this interface:
 You can drop audio and click predict.
  In a local env it takes 10 seconds to predict the genre but on AWS it takes 50 seconds because of low ram ECS instance (0.5 GB)
  <img src="./docs/assets/gui_predict.png">
+
+
+## Monitoring
+Application monitoring is the process of monitoring an application's performance, availability, and end-user experience to ensure the application is functioning properly.
+
+### Better Uptime
+Application monitoring is important not only it is necessary to track an application's performance but also identify when and where along the journey an abnormality was found and why it happened. 
+Better Uptime send notification when a server is down. In this project the free plan it is used and the notification are available only by mails.<br>
+These are the monitored servers (API and APP): <br>
+<img src="./docs/assets/betteruptime.png">
+<br>
+Dashboard details: <br>
+<img src="./docs/assets/betteruptime_details_1.png">
+<img src="./docs/assets/betteruptime_details_2.png">
+In case of down, this is the mail received: <br>
+<img src="./docs/assets/betteruptime_mail.png">
