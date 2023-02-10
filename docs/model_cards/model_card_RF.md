@@ -18,7 +18,7 @@ It predicts the music genre based on 58 music features.
 ## Use cases
 
 <!-- Address questions around how the model is intended to be used, including the foreseeable users of the model and those affected by the model. -->
-This model could be used as music genre classifier or combined with other classifier in order to obtain an ensemble approach.
+This model could be used as music genre classifier.
 
 ## Out of Scope cases
 
@@ -28,7 +28,7 @@ This model is not intended to be used for Music Name Recognizer.
 
 <!-- This section is meant to convey both technical and sociotechnical limitations. -->
 
-This dataset used to train this model is composed of 10000 songs diveved in 10 different genres:
+This dataset used to train this model is composed of 10000 songs divided in 10 different genres:
 * blues
 * classical
 * country
@@ -50,8 +50,8 @@ the cleanest audio possible. Adding augmented data to the dataset could alleviat
 This model has been trained on the [GTAN Dataset](../dataset_cards/gtzan_dataset_card.md).
 The dataset was split randomly in:
 * training data (67%)
-    * actual training data (44.89%) &nbsp;&nbsp;&nbsp;&nbsp; : for parameters fine-tuning
-    * validation data (22.11%) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : for testing parameters fine-tuning
+    * actual training data (67%) &nbsp;&nbsp;&nbsp;&nbsp; : for parameters fine-tuning
+    * validation data (33%) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : for testing parameters fine-tuning
 * test data (33%)
 
 
@@ -105,19 +105,22 @@ The training time is very fast because it fits in the range of 3 to 5 minutes.
 
 <!-- This should link to a Data Card if possible. -->
 
-Testing data was composed of a random 10% split of the dataset.
+Testing data was composed of a random 33% split of the dataset.
 
 ### Metrics and Results
 
-| Name                                                                                                                                                                                                                                                                                                                                                            | Value |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| [accuracy](https://dagshub.com/Francesco-Ranieri/music-genre-classification.mlflow/#/metric/accuracy?runs=[%22a203380f2e514f768a230670b29b69d3%22]&experiments=[%220%22]&plot_metric_keys=[%22accuracy%22]&plot_layout={%22autosize%22:true,%22xaxis%22:{},%22yaxis%22:{}}&x_axis=relative&y_axis_scale=linear&line_smoothness=1&show_point=false&deselected_curves=[]&last_linear_y_axis_range=[])             | 0.959 |
-| [loss](https://dagshub.com/Francesco-Ranieri/music-genre-classification.mlflow/#/metric/loss?runs=[%22a203380f2e514f768a230670b29b69d3%22]&experiments=[%220%22]&plot_metric_keys=[%22loss%22]&plot_layout={%22autosize%22:true,%22xaxis%22:{},%22yaxis%22:{}}&x_axis=relative&y_axis_scale=linear&line_smoothness=1&show_point=false&deselected_curves=[]&last_linear_y_axis_range=[])                         | 0.697 |
-| [val_accuracy](https://dagshub.com/Francesco-Ranieri/music-genre-classification.mlflow/#/metric/val_accuracy?runs=[%22a203380f2e514f768a230670b29b69d3%22]&experiments=[%220%22]&plot_metric_keys=[%22val_accuracy%22]&plot_layout={%22autosize%22:true,%22xaxis%22:{},%22yaxis%22:{}}&x_axis=relative&y_axis_scale=linear&line_smoothness=1&show_point=false&deselected_curves=[]&last_linear_y_axis_range=[]) | 0.635 |
-| [val_loss](https://dagshub.com/Francesco-Ranieri/music-genre-classification.mlflow/#/metric/val_loss?runs=[%22a203380f2e514f768a230670b29b69d3%22]&experiments=[%220%22]&plot_metric_keys=[%22val_loss%22]&plot_layout={%22autosize%22:true,%22xaxis%22:{},%22yaxis%22:{}}&x_axis=relative&y_axis_scale=linear&line_smoothness=1&show_point=false&deselected_curves=[]&last_linear_y_axis_range=[])             | 1.674 |
+| Name                                                                                                                                                                                                                                                                                                                                                                        | Value |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| [accuracy](https://dagshub.com/Francesco-Ranieri/music-genre-classification.mlflow/#/metric/accuracy?runs=[%22672b41634a5546e39d1f3044cd3c9d3d%22]&experiments=[%220%22]&plot_metric_keys=[%22accuracy%22]&plot_layout={%22autosize%22:true,%22xaxis%22:{},%22yaxis%22:{}}&x_axis=relative&y_axis_scale=linear&line_smoothness=1&show_point=false&deselected_curves=[]&last_linear_y_axis_range=[])             | 0.913 |
+| [loss](https://dagshub.com/Francesco-Ranieri/music-genre-classification.mlflow/#/metric/loss?runs=[%22672b41634a5546e39d1f3044cd3c9d3d%22]&experiments=[%220%22]&plot_metric_keys=[%22loss%22]&plot_layout={%22autosize%22:true,%22xaxis%22:{},%22yaxis%22:{}}&x_axis=relative&y_axis_scale=linear&line_smoothness=1&show_point=false&deselected_curves=[]&last_linear_y_axis_range=[])                         | 0.783 |
+| [val_accuracy](https://dagshub.com/Francesco-Ranieri/music-genre-classification.mlflow/#/metric/val_accuracy?runs=[%22672b41634a5546e39d1f3044cd3c9d3d%22]&experiments=[%220%22]&plot_metric_keys=[%22val_accuracy%22]&plot_layout={%22autosize%22:true,%22xaxis%22:{},%22yaxis%22:{}}&x_axis=relative&y_axis_scale=linear&line_smoothness=1&show_point=false&deselected_curves=[]&last_linear_y_axis_range=[]) | 0.626 |
+| [val_loss](https://dagshub.com/Francesco-Ranieri/music-genre-classification.mlflow/#/metric/val_loss?runs=[%22672b41634a5546e39d1f3044cd3c9d3d%22]&experiments=[%220%22]&plot_metric_keys=[%22val_loss%22]&plot_layout={%22autosize%22:true,%22xaxis%22:{},%22yaxis%22:{}}&x_axis=relative&y_axis_scale=linear&line_smoothness=1&show_point=false&deselected_curves=[]&last_linear_y_axis_range=[])             | 1.576 |
 
 ### Metrics comparison
-<img src="assets/metrics.png">
+<img src="assets/metrics_RF.png">
+
+### Confusion Matrix
+<img src="assets/confusion_matrix_RF.png">
 
 Dataset Model Card Reference: 
 * https://www.kaggle.com/code/var0101/model-cards

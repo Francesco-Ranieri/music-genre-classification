@@ -47,7 +47,7 @@ class MfccModel(BaseModel):
                                 epochs=50)
 
             mlflow.tensorflow.log_model(model=model,
-                                        artifact_path="sklearn-model",
+                                        artifact_path="tensorflow-model",
                                         registered_model_name=self.model_name)
 
             with open(PathUtils.MFCC_REPORTS_PATH, "w+") as report_file:
