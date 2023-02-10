@@ -45,7 +45,7 @@ Both of dataset form extract 58 features from a single music track and the main 
 The first one (the original one) has 1000 songs and the 58 features are extract for a single song.
 The second one (the popular one) is still propesed by the authors and simply divide each song in 10 sub songs of 3 seconds in duration.
 This dataset processing increases the number of music track to 10.000 and so the features are extracted for a 3 seconds track instead of a 30 second one.
-
+<br>
 <img src="assets/GTZAN.png">
 
 ### Project Note
@@ -53,5 +53,5 @@ For this project the 3 seconds dataset proposal was used (features_3_sec.csv) bu
 
 ## Additional Information
 ### Dataset Curators
-The curator of the original dataset are G. Tzanetakis and P. Cook. <br>
+The curators of the original dataset are G. Tzanetakis and P. Cook. <br>
 The original paper could be found [here](https://ieeexplore.ieee.org/document/1021072).
