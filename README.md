@@ -9,8 +9,9 @@ The final model is created by combining the predictions from multiple models: Ra
 Neural Network. It scores on test set an accuracy of 87%.
 
 ### Project Structure
-This project used the [Cookiecutter🍪 template](https://cookiecutter.readthedocs.io/en/stable/README.html) and is composed
-of 3 components:
+This project used the [Cookiecutter🍪 template](https://cookiecutter.readthedocs.io/en/stable/README.html) for project strucutre and the 
+[conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) specification for adding human and machine readable meaning to commit messages.<br>
+It is composed of 3 components:
 *  WEB APP Module:
     *  [Frontend](tinyurl.com/y88w7fjj): GUI application  
     *  [Backend](tinyurl.com/yv53fysb): Rest api
