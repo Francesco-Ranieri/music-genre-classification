@@ -77,17 +77,17 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/ml-boilerplate.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/music-genre-classification.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/ml-boilerplate.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/music-genre-classification.qhc"
 
 devhelp:
 	$(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/ml-boilerplate"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/ml-boilerplate"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/music-genre-classification"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/music-genre-classification"
 	@echo "# devhelp"
 
 epub:

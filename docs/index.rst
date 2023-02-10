@@ -1,9 +1,9 @@
-.. ml-boilerplate documentation master file, created by
+.. music-genre-classification documentation master file, created by
    sphinx-quickstart.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-ml-boilerplate documentation!
+music-genre-classification documentation!
 ==============================================
 
 Contents:

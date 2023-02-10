@@ -26,7 +26,7 @@ of 3 components:
 </summary>
 
 ```
-📦ml-boilerplate
+📦music-genre-classification
  ┣ 📂.dvc
  ┣ 📂.github                                         
  ┃ ┗ 📂workflows                                 : project pipelines
