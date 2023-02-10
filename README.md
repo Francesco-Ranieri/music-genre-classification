@@ -242,10 +242,42 @@ in a safe place, the following github secrets has been defined:
 
 ### AWS - Linter 🐍
 * Trigger: every commit
-* Action: code checks
+* Action: code checks (better explain in next section)
 <img src="./docs/assets/workflows/linter.png">
 
 ### PyPI - release Feature Extractor 🌪
 * Trigger: new tag created
 * Action: pypi release
 <img src="./docs/assets/workflows/pypi.png">
+
+## Quality assurance
+
+### Pylint
+This project integrates pylint, which is a static code analyser for Python, which checks the quality of the source code. <br>
+The code has been rated at 8.53/10
+
+### Flake8
+This project integrates Flake8, which is a linter that verifies pep8, pyflakes, and circular complexity
+
+### Pynblint
+This project integrates pynblint, which is a static code analyser for Python notebooks.
+
+#### Tool for code quality
+For code formatting it is used autopep8 which automatically formats Python code to conform to the PEP 8 style guide.
+```
+$ pip install --upgrade autopep8
+$ cd <folder-to-format>
+$ autopep8 --in-place --recursive .
+```
+
+### Test
+
+#### Junit test
+Pytest is a Python testing framework. This project integrates pytest for unit testing of the code.
+
+#### Deep Checks
+Deepchecks Open Source is a python library for data scientists and ML engineers. The package includes extensive test suites for machine learning models and data, built in a way that’s flexible, extendable and editable.
+<img src="./docs/assets/deep_checks.png">
+And the genererated report are:
+* [GTZAN Dataset Report](./reports/tests/deep_gtzan_checks.html)
+* [MFCC Dataset Report](./reports/tests/deep_mfcc_checks.html)
