@@ -108,7 +108,7 @@ Note: these tests have no assert because they are used to observe how a model be
 <img src="./assets/shift6.png">
 
 
-## OBSERVATION
+## OBSERVATIONS
 This model should be train with more augmented data in order to perform better on this tests.
 It seems to be sensitive both to noise and even more to data shift.
 
