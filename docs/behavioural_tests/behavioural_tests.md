@@ -8,7 +8,7 @@ Note: these tests have no assert because they are used to observe how a model be
 * Genre: POP
 * Predicted: POP
 * Normal track:
-<img src="normal.png">
+<img src="./assets/normal.png">
 * Status: PASSED
 
 ## NOISE TESTS
@@ -18,7 +18,7 @@ Note: these tests have no assert because they are used to observe how a model be
 * Genre: POP
 * Predicted: POP
 * Normal track:
-<img src="noise001.png">
+<img src="./assets/noise001.png">
 * Status: PASSED
 
 ### NOISE 0.1
@@ -26,7 +26,7 @@ Note: these tests have no assert because they are used to observe how a model be
 * Genre: POP
 * Predicted: POP
 * Normal track:
-<img src="noise01.png">
+<img src="./assets/noise01.png">
 * Status: PASSED
 
 ### NOISE 0.2
@@ -34,7 +34,7 @@ Note: these tests have no assert because they are used to observe how a model be
 * Genre: POP
 * Predicted: HIPHOP
 * Normal track:
-<img src="noise02.png">
+<img src="./assets/noise02.png">
 * Status: FAILED
 
 ### NOISE 0.5
@@ -42,7 +42,7 @@ Note: these tests have no assert because they are used to observe how a model be
 * Genre: POP
 * Predicted: COUNTRY
 * Normal track:
-<img src="noise05.png">
+<img src="./assets/noise05.png">
 * Status: FAILED
 
 ### NOISE 1 - FULL NOISE
@@ -50,7 +50,7 @@ Note: these tests have no assert because they are used to observe how a model be
 * Genre: POP
 * Predicted: RANDOM LABEL
 * Normal track:
-<img src="noise1.png">
+<img src="./assets/noise1.png">
 * Status: FAILED
 
 
@@ -64,7 +64,7 @@ Note: these tests have no assert because they are used to observe how a model be
 * Genre: POP
 * Predicted: POP
 * Normal track:
-<img src="shift01.png">
+<img src="./assets/shift01.png">
 * Status: PASSED
 
 ### SHIFT 0.2 LEFT
@@ -72,7 +72,7 @@ Note: these tests have no assert because they are used to observe how a model be
 * Genre: POP
 * Predicted: COUNTRY
 * Normal track:
-<img src="shift02.png">
+<img src="./assets/shift02.png">
 * Status: FAILED
 
 ### SHIFT 10 BOTH
@@ -80,7 +80,7 @@ Note: these tests have no assert because they are used to observe how a model be
 * Genre: POP
 * Predicted: COUNTRY
 * Normal track:
-<img src="shift10.png">
+<img src="./assets/shift10.png">
 * Status: FAILED
 
 ### SHIFT 3 BOTH
@@ -88,7 +88,7 @@ Note: these tests have no assert because they are used to observe how a model be
 * Genre: POP
 * Predicted: COUNTRY
 * Normal track:
-<img src="shift3.png">
+<img src="./assets/shift3.png">
 * Status: FAILED
 
 ### SHIFT 2 RIGTH
@@ -96,7 +96,7 @@ Note: these tests have no assert because they are used to observe how a model be
 * Genre: POP
 * Predicted: COUNTRY
 * Normal track:
-<img src="shift2.png">
+<img src="./assets/shift2.png">
 * Status: FAILED
 
 ### SHIFT 6 LEFT
@@ -104,7 +104,7 @@ Note: these tests have no assert because they are used to observe how a model be
 * Genre: POP
 * Predicted: COUNTRY
 * Normal track:
-<img src="shift6.png">
+<img src="./assets/shift6.png">
 * Status: FAILED
 
 
