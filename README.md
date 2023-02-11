@@ -1,5 +1,16 @@
 MUSIC GENRE CLASSIFICATION
 ==============================
+[![AWS - deploy API 🕸](https://github.com/Francesco-Ranieri/music-genre-classification/actions/workflows/aws_deploy_api.yml/badge.svg)](https://github.com/Francesco-Ranieri/music-genre-classification/actions/workflows/aws_deploy_api.yml)
+[![AWS - Deploy APP 🕸](https://github.com/Francesco-Ranieri/music-genre-classification/actions/workflows/aws_deploy_app.yml/badge.svg)](https://github.com/Francesco-Ranieri/music-genre-classification/actions/workflows/aws_deploy_app.yml)
+[![Linter 🐍](https://github.com/Francesco-Ranieri/music-genre-classification/actions/workflows/linter.yml/badge.svg)](https://github.com/Francesco-Ranieri/music-genre-classification/actions/workflows/linter.yml)
+[![PyPI - release Feature Extractor 🌪](https://github.com/Francesco-Ranieri/music-genre-classification/actions/workflows/release_to_pypi.yml/badge.svg)](https://github.com/Francesco-Ranieri/music-genre-classification/actions/workflows/release_to_pypi.yml)
+[![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
+[![Prometheus](https://img.shields.io/badge/style-Monitoring-green?logo=prometheus&logoColor=orange&label=Prometheus)](https://prometheus-qbly4ubf5q-uc.a.run.app)
+[![Grafana](https://img.shields.io/badge/style-Monitoring-green?logo=grafana&logoColor=orange&label=Grafana&style=Monitoring)](https://grafana-qbly4ubf5q-uc.a.run.app)
+[![Loki](https://img.shields.io/badge/loki-monitoring-green)](https://github.com/grafana/loki)
+[![prometheus](https://img.shields.io/badge/prometheus-monitoring-green)](https://prometheus.io/docs/visualization/grafana/)
+[![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/mez0.svg)](https://betteruptime.com/?utm_source=status_badge)
+[![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/mez4.svg)](https://betteruptime.com/?utm_source=status_badge)
 
 ## Intro - Project Idea
 > Music Classification aims to understand the music semantics over various different features.
@@ -375,3 +386,6 @@ Dashboard details: <br>
 <img src="./docs/assets/betteruptime_details_2.png">
 In case of down, this is the mail received: <br>
 <img src="./docs/assets/betteruptime_mail.png">
+
+
+Finally, if you are a programmer, check this [utils](./docs/dev_utils.md) !!
