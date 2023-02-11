@@ -1,5 +1,5 @@
-MUSIC GENRE CLASSIFICATION
-==============================
+<img src="docs/assets/logo.png"><br>
+
 [![AWS - deploy API 🕸](https://github.com/Francesco-Ranieri/music-genre-classification/actions/workflows/aws_deploy_api.yml/badge.svg)](https://github.com/Francesco-Ranieri/music-genre-classification/actions/workflows/aws_deploy_api.yml)
 [![AWS - Deploy APP 🕸](https://github.com/Francesco-Ranieri/music-genre-classification/actions/workflows/aws_deploy_app.yml/badge.svg)](https://github.com/Francesco-Ranieri/music-genre-classification/actions/workflows/aws_deploy_app.yml)
 [![Linter 🐍](https://github.com/Francesco-Ranieri/music-genre-classification/actions/workflows/linter.yml/badge.svg)](https://github.com/Francesco-Ranieri/music-genre-classification/actions/workflows/linter.yml)
