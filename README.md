@@ -7,10 +7,11 @@
 [![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
 [![Prometheus](https://img.shields.io/badge/style-Monitoring-green?logo=prometheus&logoColor=orange&label=Prometheus)](https://prometheus-qbly4ubf5q-uc.a.run.app)
 [![Grafana](https://img.shields.io/badge/style-Monitoring-green?logo=grafana&logoColor=orange&label=Grafana&style=Monitoring)](https://grafana-qbly4ubf5q-uc.a.run.app)
-[![Loki](https://img.shields.io/badge/loki-monitoring-green)](https://github.com/grafana/loki)
-[![prometheus](https://img.shields.io/badge/prometheus-monitoring-green)](https://prometheus.io/docs/visualization/grafana/)
+[![Loki](https://img.shields.io/badge/Loki-monitoring-green)](https://github.com/grafana/loki)
+[![prometheus](https://img.shields.io/badge/Prometheus-monitoring-green)](https://prometheus.io/docs/visualization/grafana/)
 [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/mez0.svg)](https://betteruptime.com/?utm_source=status_badge)
 [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/mez4.svg)](https://betteruptime.com/?utm_source=status_badge)
+[![Loki](https://img.shields.io/badge/Dagshub-repository-blue)](https://dagshub.com/Francesco-Ranieri/music-genre-classification)
 
 ## Intro - Project Idea
 > Music Classification aims to understand the music semantics over various different features.
@@ -186,7 +187,9 @@ The models described above use the following datasets respectively:
 ## Reproducibility
 
 ### Dagshub
-Dagshub is a Github's inspired platform, specifically created for data science projects, that allows to host, version, and manage code, data, models, experiments, Dagshub is free and open-source
+Dagshub is a Github's inspired platform, specifically created for data science projects, that allows to host, version, and manage code, data, models, experiments, Dagshub is free and open-source.
+<br>
+Music Genre Classification - [Dagshub Repository](https://dagshub.com/Francesco-Ranieri/music-genre-classification)
 
 ### DVC
 DVC is a software, based on Git, that allows to version data and track data science experiments.
