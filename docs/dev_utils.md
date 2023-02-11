@@ -78,7 +78,7 @@ autopep8 --in-place --recursive .
 ```
 
 ## CREATE DISTRO FEAT_EXTRACTOR
-If you want to create a distro on Pypi, just simply add a tag on github and, the github action just do it for you !.
+If you want to create a distro on Pypi, just simply add a tag on github and, the github action just do it for you ! <br>
 If you want to create a distro from your local machine and push it to pypi, use this commands:
 
 ```
