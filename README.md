@@ -24,8 +24,8 @@ This project used the [Cookiecutter🍪 template](https://cookiecutter.readthedo
 [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) specification for adding human and machine readable meaning to commit messages.<br>
 It is composed of 3 components:
 *  WEB APP Module:
-    *  [Frontend](tinyurl.com/y88w7fjj): GUI application  
-    *  [Backend](tinyurl.com/yv53fysb): Rest api
+    *  [Frontend](http://ec2co-ecsel-1wfdxn1z9grnb-601652181.us-east-1.elb.amazonaws.com:7860): GUI application  
+    *  [Backend](http://ec2co-ecsel-1wfdxn1z9grnb-601652181.us-east-1.elb.amazonaws.com:8000/docs): Rest api
 *  Observability Module:
     * Grafana dashboard created with:
         * Prometheus
